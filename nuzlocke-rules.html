@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nuzlocke Rules — Complete Guide to All Nuzlocke Challenge Rules</title>
+<meta name="description" content="Complete guide to Nuzlocke rules. Learn the core rules, popular optional rules like Dupes Clause and Level Caps, and hardcore Nuzlocke variants.">
+<link rel="canonical" href="https://nuzlocketracker.xyz/nuzlocke-rules.html">
+<style>
+:root{--red:#e74c3c;--red-glow:rgba(231,76,60,0.3);--gold:#f1c40f;--blue:#3498db;--green:#2ecc71;--purple:#9b59b6;--bg:#0f0f17;--bg2:#1a1a2e;--card:#16213e;--card-hover:#1c2a4a;--text:#ecf0f1;--text2:#95a5a6;--text3:#636e72;--border:#2c3e50;--radius:12px;--radius-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text2);line-height:1.7;min-height:100vh}
+.header{background:rgba(15,15,23,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--red);border-radius:50%;position:relative;box-shadow:0 0 16px var(--red-glow)}
+.logo-icon::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--bg)}
+.logo-icon::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:var(--bg);transform:translateY(-50%)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.container{max-width:800px;margin:0 auto;padding:40px 24px 60px}
+.breadcrumb{font-size:.85rem;color:var(--text3);margin-bottom:24px}
+.breadcrumb a{color:var(--red);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--text);margin-bottom:12px;line-height:1.3}
+h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta{font-size:.85rem;color:var(--text3);margin-bottom:32px}
+h2{font-family:'Chakra Petch',sans-serif;font-size:1.3rem;color:var(--text);margin:36px 0 12px}
+h3{font-size:1.05rem;color:var(--gold);margin:24px 0 8px}
+p{margin-bottom:16px;font-size:.95rem;line-height:1.8}
+strong{color:var(--text)}
+.tip-box{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:16px 20px;margin:20px 0}
+.tip-box strong{color:var(--gold)}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.rule-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.rule-card .num{font-family:'Chakra Petch',sans-serif;font-size:1.8rem;font-weight:700;color:var(--red);margin-bottom:6px}
+.rule-card h4{font-size:.95rem;color:var(--text);margin-bottom:6px}
+.rule-card p{font-size:.88rem;margin-bottom:0}
+.pokemon-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.pokemon-tag{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.85rem;color:var(--text);transition:all .2s}
+.pokemon-tag:hover{border-color:var(--red);background:rgba(231,76,60,.1)}
+.cta-box{background:var(--bg2);border:1px solid var(--red);border-radius:var(--radius);padding:24px;text-align:center;margin:32px 0}
+.cta-box p{margin-bottom:12px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--red);color:white;padding:10px 28px;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;transition:all .2s;box-shadow:0 4px 16px var(--red-glow)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--red-glow)}
+.footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text3);font-size:.82rem}
+.footer a{color:var(--red);text-decoration:none}
+@media(max-width:600px){.nav-links{display:none}.rule-grid{grid-template-columns:1fr}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"></head><body><header class="header"><div class="header-inner"><a href="/" class="logo"><div class="logo-icon"></div>Nuzlocke Tracker</a><nav><ul class="nav-links"><li><a href="/">Tracker</a></li><li><a href="/nuzlocke-rules.html">Rules</a></li><li><a href="/nuzlocke-tips.html">Tips</a></li></ul></nav></div></header>
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → Nuzlocke Rules</div>
+<h1>Complete Guide to <span class="hl">Nuzlocke Rules</span></h1>
+<p class="meta">Everything you need to know before starting your first Nuzlocke challenge.</p>
+
+<h2>The 3 Core Nuzlocke Rules</h2>
+<p>The Nuzlocke challenge was created by artist Nick Franco in 2010. The rules are simple but transform Pokémon into a completely different experience.</p>
+
+<div class="rule-grid">
+<div class="rule-card"><div class="num">01</div><h4>First Encounter Only</h4><p>You may only catch the <strong>first Pokémon</strong> you encounter on each route or area. If it faints or flees, you get nothing from that area.</p></div>
+<div class="rule-card"><div class="num">02</div><h4>Faint = Death</h4><p>If a Pokémon <strong>faints in battle</strong>, it is considered permanently dead. You must release it or box it forever.</p></div>
+<div class="rule-card"><div class="num">03</div><h4>Nickname Everything</h4><p>You must give every Pokémon a <strong>nickname</strong>. This creates emotional attachment and makes losses hit harder.</p></div>
+</div>
+
+<h2>Popular Optional Rules</h2>
+<h3>Dupes Clause</h3>
+<p>If your first encounter on a route is a Pokémon species you have already caught, you may skip it and try for a different one. This prevents your team from being filled with duplicates and adds more variety to your run.</p>
+
+<h3>Shiny Clause</h3>
+<p>If you encounter a <strong>shiny Pokémon</strong>, you may catch it regardless of whether it is your first encounter on that route. Shinies are rare enough that most players agree this exception is fair.</p>
+
+<h3>Level Caps</h3>
+<p>You cannot level your Pokémon above the next gym leader's highest Pokémon level. This prevents overleveling and keeps boss battles challenging. For example, if the next gym leader's ace is level 25, none of your Pokémon can exceed level 25.</p>
+
+<h3>Set Mode</h3>
+<p>Change the battle style to <strong>"Set" instead of "Switch"</strong> in the game options. This means you do not get a free switch when you knock out an opponent's Pokémon, making battles significantly harder.</p>
+
+<h3>No Items in Battle</h3>
+<p>You cannot use items like Potions or Revives during battle. You can only use what your Pokémon hold. This is a common rule in <strong>Hardcore Nuzlockes</strong>.</p>
+
+<h2>Hardcore Nuzlocke Rules</h2>
+<p>A Hardcore Nuzlocke combines all of the above into the ultimate challenge. The full ruleset is typically:</p>
+<div class="tip-box"><strong>Hardcore Rules:</strong> All 3 core rules + Dupes Clause + Level Caps + Set Mode + No Items in Battle. Some players also ban Legendary Pokémon and limit the number of Pokémon Center visits.</div>
+
+<h2>Other Nuzlocke Variants</h2>
+<h3>Wonderlocke</h3>
+<p>Every Pokémon you catch must immediately be Wonder Traded. You play the run with whatever random Pokémon you receive in return.</p>
+
+<h3>Soullink</h3>
+<p>Two players play simultaneously. Pokémon caught on the same route are "linked" — if one dies, both die. This adds a cooperative element to the challenge.</p>
+
+<h3>Wedlocke</h3>
+<p>Your Pokémon are paired into couples. In battle, you can only switch between partners within the same pair. If one partner dies, the other must be released too.</p>
+
+<h3>Randomizer Nuzlocke</h3>
+<p>Play a randomized ROM where wild encounters, trainer teams, and sometimes even abilities and types are shuffled. Combined with Nuzlocke rules, this creates completely unpredictable runs.</p>
+
+<div class="cta-box"><p>Ready to start your Nuzlocke? Track your encounters with our free tool.</p><a href="/" class="cta-btn">Open Nuzlocke Tracker</a></div>
+</div><footer class="footer"><p>Nuzlocke Tracker — a free tool for the Pokémon Nuzlocke community.</p><p>Pokémon is a trademark of Nintendo, Game Freak, and Creatures Inc. Not affiliated.</p><p>© 2026 nuzlocketracker.xyz · <a href="/">Back to Tracker</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the basic Nuzlocke rules?","acceptedAnswer":{"@type":"Answer","text":"The three core rules are: 1) You can only catch the first Pokémon on each route, 2) If a Pokémon faints it is considered dead and must be boxed or released, 3) You must nickname every Pokémon."}},{"@type":"Question","name":"What is a Hardcore Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"A Hardcore Nuzlocke adds Level Caps, Set Mode, No Items in Battle, and Dupes Clause on top of the three core Nuzlocke rules."}}]}</script>
+</body></html>

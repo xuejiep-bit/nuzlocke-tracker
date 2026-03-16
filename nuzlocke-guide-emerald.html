@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pokémon Emerald Nuzlocke Guide — Tips, Encounters & Gym Strategy</title>
+<meta name="description" content="Complete Pokémon Emerald Nuzlocke guide. Best encounters, gym leader strategies, team building tips, and how to beat the Elite Four in a Nuzlocke run.">
+<link rel="canonical" href="https://nuzlocketracker.xyz/nuzlocke-guide-emerald.html">
+<style>
+:root{--red:#e74c3c;--red-glow:rgba(231,76,60,0.3);--gold:#f1c40f;--blue:#3498db;--green:#2ecc71;--purple:#9b59b6;--bg:#0f0f17;--bg2:#1a1a2e;--card:#16213e;--card-hover:#1c2a4a;--text:#ecf0f1;--text2:#95a5a6;--text3:#636e72;--border:#2c3e50;--radius:12px;--radius-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text2);line-height:1.7;min-height:100vh}
+.header{background:rgba(15,15,23,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--red);border-radius:50%;position:relative;box-shadow:0 0 16px var(--red-glow)}
+.logo-icon::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--bg)}
+.logo-icon::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:var(--bg);transform:translateY(-50%)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.container{max-width:800px;margin:0 auto;padding:40px 24px 60px}
+.breadcrumb{font-size:.85rem;color:var(--text3);margin-bottom:24px}
+.breadcrumb a{color:var(--red);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--text);margin-bottom:12px;line-height:1.3}
+h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta{font-size:.85rem;color:var(--text3);margin-bottom:32px}
+h2{font-family:'Chakra Petch',sans-serif;font-size:1.3rem;color:var(--text);margin:36px 0 12px}
+h3{font-size:1.05rem;color:var(--gold);margin:24px 0 8px}
+p{margin-bottom:16px;font-size:.95rem;line-height:1.8}
+strong{color:var(--text)}
+.tip-box{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:16px 20px;margin:20px 0}
+.tip-box strong{color:var(--gold)}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.rule-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.rule-card .num{font-family:'Chakra Petch',sans-serif;font-size:1.8rem;font-weight:700;color:var(--red);margin-bottom:6px}
+.rule-card h4{font-size:.95rem;color:var(--text);margin-bottom:6px}
+.rule-card p{font-size:.88rem;margin-bottom:0}
+.pokemon-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.pokemon-tag{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.85rem;color:var(--text);transition:all .2s}
+.pokemon-tag:hover{border-color:var(--red);background:rgba(231,76,60,.1)}
+.cta-box{background:var(--bg2);border:1px solid var(--red);border-radius:var(--radius);padding:24px;text-align:center;margin:32px 0}
+.cta-box p{margin-bottom:12px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--red);color:white;padding:10px 28px;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;transition:all .2s;box-shadow:0 4px 16px var(--red-glow)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--red-glow)}
+.footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text3);font-size:.82rem}
+.footer a{color:var(--red);text-decoration:none}
+@media(max-width:600px){.nav-links{display:none}.rule-grid{grid-template-columns:1fr}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"></head><body><header class="header"><div class="header-inner"><a href="/" class="logo"><div class="logo-icon"></div>Nuzlocke Tracker</a><nav><ul class="nav-links"><li><a href="/">Tracker</a></li><li><a href="/nuzlocke-rules.html">Rules</a></li><li><a href="/nuzlocke-tips.html">Tips</a></li></ul></nav></div></header>
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → Emerald Nuzlocke Guide</div>
+<h1>Pokémon Emerald <span class="hl">Nuzlocke Guide</span></h1>
+<p class="meta">Everything you need to beat an Emerald Nuzlocke — from starter choice to the Elite Four.</p>
+
+<h2>Why Emerald?</h2>
+<p>Pokémon Emerald is one of the most popular Nuzlocke games. It has a good difficulty curve, diverse encounter tables, and memorable gym leaders. The double battle with Tate & Liza and the challenging Elite Four make it a rewarding Nuzlocke experience.</p>
+
+<h2>Starter Choice</h2>
+<h3>Mudkip (Recommended)</h3>
+<p><strong>Swampert</strong> is widely considered the best Nuzlocke starter in Emerald. Water/Ground typing gives only one weakness (Grass), which is rare among enemy teams. It handles Roxanne, Wattson, and Flannery with ease and stays relevant all the way through the Elite Four.</p>
+
+<h3>Torchic (Risky but Powerful)</h3>
+<p><strong>Blaziken</strong> is a glass cannon. Incredible Attack and Speed after evolution, but fragile. Great for experienced Nuzlockers who know how to manage risk.</p>
+
+<h3>Treecko (Hard Mode)</h3>
+<p><strong>Sceptile</strong> has a rough time against many gyms and the Elite Four. Only recommended if you want an extra challenge.</p>
+
+<h2>Key Encounters to Watch For</h2>
+<div class="tip-box"><strong>Must-catch encounters:</strong> Magikarp (any water), Abra (Route 116), Geodude (Granite Cave), Ralts (Route 102), Aron (Granite Cave), Tentacool (ocean routes). These Pokémon can carry entire Nuzlocke runs.</div>
+
+<h2>Gym Leader Strategies</h2>
+<h3>Roxanne (Rock) — Rustboro City</h3>
+<p>Easy with Mudkip or any Grass/Water type. Watch out for Rock Tomb lowering your Speed. If you picked Torchic, you need a backup plan — Lotad from Route 102 or Wingull from early routes work well.</p>
+
+<h3>Brawly (Fighting) — Dewford Town</h3>
+<p>His Makuhita has Bulk Up, which can snowball fast. Bring a Flying type like Taillow or a Psychic type like Ralts. Do not let Makuhita get more than one Bulk Up.</p>
+
+<h3>Wattson (Electric) — Mauville City</h3>
+<p>The first real wall. His Magneton has high Special Attack and Voltorb knows Selfdestruct. A Ground type like Marshtomp or Geodude trivializes this fight. Without one, this gym can end runs.</p>
+
+<h3>Flannery (Fire) — Lavaridge Town</h3>
+<p>Overheat from Torkoal hits incredibly hard but lowers its Special Attack. Survive the first hit and you win. Water types dominate this gym.</p>
+
+<h3>Norman (Normal) — Petalburg City</h3>
+<p><strong>The hardest gym in Emerald Nuzlocke.</strong> His Slaking hits absurdly hard with Facade, especially if you try to burn or paralyze it (Facade doubles in power with status). Best strategy: use Protect on Slaking's attack turns and hit during Truant turns. Fighting types like Makuhita/Hariyama are your best bet.</p>
+
+<h3>Tate & Liza (Psychic) — Mossdeep City</h3>
+<p>A double battle. Their Claydol and Solrock/Lunatone combo can be tricky. Dark types are ideal. Sharpedo or Absol with Crunch can sweep. Watch out for Earthquake hitting your own partner.</p>
+
+<h2>Elite Four Tips</h2>
+<p>The Emerald Elite Four is tough. <strong>Sidney (Dark)</strong> requires Fighting coverage. <strong>Phoebe (Ghost)</strong> needs a Normal or Dark type. <strong>Glacia (Ice)</strong> is deceptive — her team has Water types too. <strong>Drake (Dragon)</strong> needs Ice coverage. <strong>Steven/Wallace</strong> as champion demands a well-rounded team.</p>
+
+<div class="tip-box"><strong>Critical:</strong> Grind your team to at least level 55 before the Elite Four. Bring plenty of healing items and have a clear game plan for each member.</div>
+
+<div class="cta-box"><p>Track your Emerald Nuzlocke encounters with our free tool.</p><a href="/" class="cta-btn">Open Nuzlocke Tracker</a></div>
+</div><footer class="footer"><p>Nuzlocke Tracker — a free tool for the Pokémon Nuzlocke community.</p><p>Pokémon is a trademark of Nintendo, Game Freak, and Creatures Inc. Not affiliated.</p><p>© 2026 nuzlocketracker.xyz · <a href="/">Back to Tracker</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best starter for Emerald Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Mudkip is the best starter for an Emerald Nuzlocke. Swampert's Water/Ground typing gives only one weakness and it handles multiple gym leaders effectively."}},{"@type":"Question","name":"What is the hardest gym in Emerald Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Norman's Normal-type gym is considered the hardest. His Slaking hits extremely hard with Facade, especially against status conditions."}}]}</script>
+</body></html>
