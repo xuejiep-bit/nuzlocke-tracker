@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23e74c3c' stroke='%231a1a2e' stroke-width='2'/><path d='M1 16 A15 15 0 0 0 31 16' fill='white'/><rect x='1' y='14.5' width='30' height='3' fill='%231a1a2e'/><circle cx='16' cy='16' r='5' fill='white' stroke='%231a1a2e' stroke-width='2'/><circle cx='16' cy='16' r='2' fill='%231a1a2e'/></svg>">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pokémon Emerald Gym Leaders — Teams, Levels & Strategy for Nuzlocke</title>
+<meta name="description" content="Complete Pokémon Emerald gym leader guide for Nuzlocke runs. Every gym leader's team, levels, types, weaknesses, and battle strategy. Includes Elite Four and Champion.">
+<link rel="canonical" href="https://nuzlocketracker.xyz/emerald-gym-leaders.html">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0f17;--bg2:#1a1a2e;--card:#16213e;--card2:#1c2a4a;--text:#ecf0f1;--text2:#95a5a6;--text3:#636e72;--border:#2c3e50;--red:#e74c3c;--red-glow:rgba(231,76,60,.3);--gold:#f1c40f;--green:#2ecc71;--blue:#3498db;--radius:12px;--radius-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text2);line-height:1.6;min-height:100vh}
+.header{background:rgba(15,15,23,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--red);border-radius:50%;position:relative;box-shadow:0 0 16px var(--red-glow)}
+.logo-icon::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--bg)}
+.logo-icon::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:var(--bg);transform:translateY(-50%)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--red)}
+.container{max-width:960px;margin:0 auto;padding:32px 24px 60px}
+.breadcrumb{font-size:.85rem;color:var(--text3);margin-bottom:20px}
+.breadcrumb a{color:var(--red);text-decoration:none}
+h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--text);margin-bottom:8px}
+h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:.95rem;color:var(--text3);margin-bottom:28px}
+
+/* Quick nav */
+.quick-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.quick-nav a{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.82rem;color:var(--text2);text-decoration:none;transition:all .2s}
+.quick-nav a:hover{border-color:var(--red);color:var(--text);background:rgba(231,76,60,.1)}
+
+/* Gym card */
+.gym-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;overflow:hidden}
+.gym-header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--border)}
+.gym-title{display:flex;align-items:center;gap:12px}
+.gym-num{font-family:'Chakra Petch',sans-serif;font-size:1.8rem;font-weight:700;color:var(--red)}
+.gym-info h2{font-family:'Chakra Petch',sans-serif;font-size:1.15rem;color:var(--text);margin-bottom:2px}
+.gym-info .loc{font-size:.82rem;color:var(--text3)}
+.gym-meta{display:flex;gap:12px;align-items:center}
+.type-badge{display:inline-block;padding:4px 12px;border-radius:4px;font-size:.75rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.5px}
+.level-cap{font-size:.82rem;color:var(--gold);font-weight:600;background:rgba(241,196,15,.1);padding:4px 12px;border-radius:4px}
+
+/* Pokemon row */
+.pokemon-table{width:100%;border-collapse:collapse}
+.pokemon-table th{text-align:left;padding:10px 24px;font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;background:rgba(0,0,0,.2);border-bottom:1px solid var(--border)}
+.pokemon-table td{padding:12px 24px;border-bottom:1px solid rgba(44,62,80,.3);font-size:.9rem;vertical-align:middle}
+.pokemon-table tr:last-child td{border-bottom:none}
+.pokemon-table tr:hover td{background:rgba(231,76,60,.04)}
+.poke-name{font-weight:600;color:var(--text)}
+.poke-level{color:var(--gold);font-weight:600}
+
+/* Strategy box */
+.strategy{padding:16px 24px;background:rgba(241,196,15,.04);border-top:1px solid var(--border)}
+.strategy strong{color:var(--gold);font-size:.82rem;text-transform:uppercase;letter-spacing:.5px}
+.strategy p{margin-top:6px;font-size:.88rem;line-height:1.6}
+.strategy .weak{color:var(--green);font-weight:600}
+.strategy .danger{color:var(--red);font-weight:600}
+
+/* Type colors */
+.t-rock{background:#b8a038}.t-fighting{background:#c03028}.t-electric{background:#f8d030;color:#333}.t-fire{background:#f08030}.t-normal{background:#a8a878}
+.t-flying{background:#a890f0}.t-psychic{background:#f85888}.t-water{background:#6890f0}.t-dark{background:#705848}.t-ice{background:#98d8d8;color:#333}
+.t-dragon{background:#7038f8}.t-ghost{background:#705898}.t-steel{background:#b8b8d0;color:#333}.t-ground{background:#e0c068;color:#333}
+.t-grass{background:#78c850}.t-poison{background:#a040a0}.t-bug{background:#a8b820}.t-fairy{background:#ee99ac;color:#333}
+
+/* Elite four section */
+.section-title{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;color:var(--text);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--red)}
+
+/* CTA */
+.cta-box{background:var(--bg2);border:1px solid var(--red);border-radius:var(--radius);padding:24px;text-align:center;margin:32px 0}
+.cta-box p{margin-bottom:12px}
+.cta-btn{display:inline-block;background:var(--red);color:white;padding:10px 28px;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;transition:all .2s;box-shadow:0 4px 16px var(--red-glow);margin:0 6px}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-btn.secondary{background:transparent;border:1px solid var(--red);box-shadow:none}
+
+.footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text3);font-size:.82rem}
+.footer a{color:var(--red);text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}.gym-header{flex-direction:column;align-items:flex-start}.pokemon-table td,.pokemon-table th{padding:8px 12px;font-size:.82rem}}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo"><div class="logo-icon"></div>Nuzlocke Tracker</a><nav><ul class="nav-links"><li><a href="/">Tracker</a></li><li><a href="/type-chart.html">Type Chart</a></li><li><a href="/emerald-gym-leaders.html" class="active">Emerald</a></li></ul></nav></div></header>
+
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → Emerald Gym Leaders</div>
+<h1>Pokémon Emerald <span class="hl">Gym Leaders</span> & Elite Four</h1>
+<p class="subtitle">Complete team data for every gym leader, Elite Four member, and Champion in Pokémon Emerald. Verified against Bulbapedia & Pokémon Database.</p>
+
+<div class="quick-nav">
+<a href="#gym1">1. Roxanne</a><a href="#gym2">2. Brawly</a><a href="#gym3">3. Wattson</a><a href="#gym4">4. Flannery</a>
+<a href="#gym5">5. Norman</a><a href="#gym6">6. Winona</a><a href="#gym7">7. Tate & Liza</a><a href="#gym8">8. Juan</a>
+<a href="#elite4">Elite Four</a><a href="#champion">Champion</a>
+</div>
+
+<!-- GYM 1 -->
+<div class="gym-card" id="gym1">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#1</span><div class="gym-info"><h2>Roxanne</h2><span class="loc">Rustboro City</span></div></div>
+<div class="gym-meta"><span class="type-badge t-rock">Rock</span><span class="level-cap">Level Cap: 15</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Geodude</td><td class="poke-level">Lv. 12</td><td><span class="type-badge t-rock">Rock</span> <span class="type-badge t-ground">Ground</span></td></tr>
+<tr><td class="poke-name">Geodude</td><td class="poke-level">Lv. 12</td><td><span class="type-badge t-rock">Rock</span> <span class="type-badge t-ground">Ground</span></td></tr>
+<tr><td class="poke-name">Nosepass</td><td class="poke-level">Lv. 15</td><td><span class="type-badge t-rock">Rock</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Water, Grass, or Fighting</span> types. Mudkip trivializes this gym. If you picked Torchic, catch a Lotad or Wingull early. <span class="danger">Watch out:</span> Nosepass has Rock Tomb which lowers Speed.</p></div>
+</div>
+
+<!-- GYM 2 -->
+<div class="gym-card" id="gym2">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#2</span><div class="gym-info"><h2>Brawly</h2><span class="loc">Dewford Town</span></div></div>
+<div class="gym-meta"><span class="type-badge t-fighting">Fighting</span><span class="level-cap">Level Cap: 19</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Machop</td><td class="poke-level">Lv. 16</td><td><span class="type-badge t-fighting">Fighting</span></td></tr>
+<tr><td class="poke-name">Meditite</td><td class="poke-level">Lv. 16</td><td><span class="type-badge t-fighting">Fighting</span> <span class="type-badge t-psychic">Psychic</span></td></tr>
+<tr><td class="poke-name">Makuhita</td><td class="poke-level">Lv. 19</td><td><span class="type-badge t-fighting">Fighting</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Flying or Psychic</span> types. Taillow or Wingull are your best options. <span class="danger">Danger:</span> Makuhita has Bulk Up — do NOT let it set up more than once or it will sweep your team.</p></div>
+</div>
+
+<!-- GYM 3 -->
+<div class="gym-card" id="gym3">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#3</span><div class="gym-info"><h2>Wattson</h2><span class="loc">Mauville City</span></div></div>
+<div class="gym-meta"><span class="type-badge t-electric">Electric</span><span class="level-cap">Level Cap: 24</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Voltorb</td><td class="poke-level">Lv. 20</td><td><span class="type-badge t-electric">Electric</span></td></tr>
+<tr><td class="poke-name">Electrike</td><td class="poke-level">Lv. 20</td><td><span class="type-badge t-electric">Electric</span></td></tr>
+<tr><td class="poke-name">Magneton</td><td class="poke-level">Lv. 22</td><td><span class="type-badge t-electric">Electric</span> <span class="type-badge t-steel">Steel</span></td></tr>
+<tr><td class="poke-name">Manectric</td><td class="poke-level">Lv. 24</td><td><span class="type-badge t-electric">Electric</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Ground</span> types — they are completely immune to Electric. Marshtomp or Geodude make this gym free. <span class="danger">Danger:</span> Voltorb knows Selfdestruct and WILL use it. Do NOT leave a low-HP Pokémon in against it. Magneton is Electric/Steel so Ground is 4× effective.</p></div>
+</div>
+
+<!-- GYM 4 -->
+<div class="gym-card" id="gym4">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#4</span><div class="gym-info"><h2>Flannery</h2><span class="loc">Lavaridge Town</span></div></div>
+<div class="gym-meta"><span class="type-badge t-fire">Fire</span><span class="level-cap">Level Cap: 29</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Numel</td><td class="poke-level">Lv. 24</td><td><span class="type-badge t-fire">Fire</span> <span class="type-badge t-ground">Ground</span></td></tr>
+<tr><td class="poke-name">Slugma</td><td class="poke-level">Lv. 24</td><td><span class="type-badge t-fire">Fire</span></td></tr>
+<tr><td class="poke-name">Camerupt</td><td class="poke-level">Lv. 26</td><td><span class="type-badge t-fire">Fire</span> <span class="type-badge t-ground">Ground</span></td></tr>
+<tr><td class="poke-name">Torkoal</td><td class="poke-level">Lv. 29</td><td><span class="type-badge t-fire">Fire</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Water or Ground</span> types. Marshtomp is the MVP here — Water + Ground hits everything super effectively. <span class="danger">Danger:</span> Torkoal's Overheat hits incredibly hard on the first use, but lowers its Sp.Atk afterward. Survive the first Overheat and you win. Numel and Camerupt are 4× weak to Water.</p></div>
+</div>
+
+<!-- GYM 5 -->
+<div class="gym-card" id="gym5">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#5</span><div class="gym-info"><h2>Norman</h2><span class="loc">Petalburg City</span></div></div>
+<div class="gym-meta"><span class="type-badge t-normal">Normal</span><span class="level-cap">Level Cap: 31</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Spinda</td><td class="poke-level">Lv. 27</td><td><span class="type-badge t-normal">Normal</span></td></tr>
+<tr><td class="poke-name">Vigoroth</td><td class="poke-level">Lv. 27</td><td><span class="type-badge t-normal">Normal</span></td></tr>
+<tr><td class="poke-name">Linoone</td><td class="poke-level">Lv. 29</td><td><span class="type-badge t-normal">Normal</span></td></tr>
+<tr><td class="poke-name">Slaking</td><td class="poke-level">Lv. 31</td><td><span class="type-badge t-normal">Normal</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Fighting</span> types. Hariyama or Machoke are ideal. <span class="danger">THE HARDEST GYM IN EMERALD.</span> Slaking has enormous Attack and knows Facade. Do NOT burn or paralyze it — Facade doubles in power with status conditions. Exploit Slaking's Truant ability: it loafs every other turn. Use Protect on its attack turns, then hit hard on its Truant turns.</p></div>
+</div>
+
+<!-- GYM 6 -->
+<div class="gym-card" id="gym6">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#6</span><div class="gym-info"><h2>Winona</h2><span class="loc">Fortree City</span></div></div>
+<div class="gym-meta"><span class="type-badge t-flying">Flying</span><span class="level-cap">Level Cap: 33</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Swablu</td><td class="poke-level">Lv. 29</td><td><span class="type-badge t-normal">Normal</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Tropius</td><td class="poke-level">Lv. 29</td><td><span class="type-badge t-grass">Grass</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Pelipper</td><td class="poke-level">Lv. 30</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Skarmory</td><td class="poke-level">Lv. 31</td><td><span class="type-badge t-steel">Steel</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Altaria</td><td class="poke-level">Lv. 33</td><td><span class="type-badge t-dragon">Dragon</span> <span class="type-badge t-flying">Flying</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Electric, Ice, or Rock</span> types. This is a diverse team — no single type beats everything. <span class="danger">Danger:</span> Altaria knows Dragon Dance. If it sets up even once, it can sweep your entire team. Prioritize taking Altaria down fast with Ice moves. Skarmory is very bulky physically — use Special attacks.</p></div>
+</div>
+
+<!-- GYM 7 -->
+<div class="gym-card" id="gym7">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#7</span><div class="gym-info"><h2>Tate & Liza</h2><span class="loc">Mossdeep City</span></div></div>
+<div class="gym-meta"><span class="type-badge t-psychic">Psychic</span><span class="level-cap">Level Cap: 42</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Claydol</td><td class="poke-level">Lv. 41</td><td><span class="type-badge t-ground">Ground</span> <span class="type-badge t-psychic">Psychic</span></td></tr>
+<tr><td class="poke-name">Xatu</td><td class="poke-level">Lv. 41</td><td><span class="type-badge t-psychic">Psychic</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Solrock</td><td class="poke-level">Lv. 42</td><td><span class="type-badge t-rock">Rock</span> <span class="type-badge t-psychic">Psychic</span></td></tr>
+<tr><td class="poke-name">Lunatone</td><td class="poke-level">Lv. 42</td><td><span class="type-badge t-rock">Rock</span> <span class="type-badge t-psychic">Psychic</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p><strong>This is a Double Battle.</strong> Use <span class="weak">Dark, Water, or Ghost</span> types. Sharpedo with Crunch is excellent. <span class="danger">Danger:</span> Claydol has Earthquake which hits both your Pokémon AND its ally — position carefully. Solrock and Lunatone can use Cosmic Power to become very tanky. Take them down fast before they set up.</p></div>
+</div>
+
+<!-- GYM 8 -->
+<div class="gym-card" id="gym8">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">#8</span><div class="gym-info"><h2>Juan</h2><span class="loc">Sootopolis City</span></div></div>
+<div class="gym-meta"><span class="type-badge t-water">Water</span><span class="level-cap">Level Cap: 46</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Luvdisc</td><td class="poke-level">Lv. 41</td><td><span class="type-badge t-water">Water</span></td></tr>
+<tr><td class="poke-name">Whiscash</td><td class="poke-level">Lv. 41</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-ground">Ground</span></td></tr>
+<tr><td class="poke-name">Sealeo</td><td class="poke-level">Lv. 43</td><td><span class="type-badge t-ice">Ice</span> <span class="type-badge t-water">Water</span></td></tr>
+<tr><td class="poke-name">Crawdaunt</td><td class="poke-level">Lv. 43</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-dark">Dark</span></td></tr>
+<tr><td class="poke-name">Kingdra</td><td class="poke-level">Lv. 46</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-dragon">Dragon</span></td></tr>
+</table>
+<div class="strategy"><strong>Nuzlocke Strategy</strong><p>Use <span class="weak">Grass or Electric</span> types. <span class="danger">Major Danger:</span> Kingdra has Water/Dragon typing, meaning its only weakness is Dragon. It also knows Rest to heal. This is one of the toughest fights in Emerald. Whiscash is 4× weak to Grass. Bring a Pokémon with Toxic for Kingdra if you lack Dragon moves.</p></div>
+</div>
+
+<!-- ELITE FOUR -->
+<div class="section-title" id="elite4">Elite Four</div>
+
+<div class="gym-card">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">E1</span><div class="gym-info"><h2>Sidney</h2><span class="loc">Elite Four — Dark Type</span></div></div>
+<div class="gym-meta"><span class="type-badge t-dark">Dark</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Mightyena</td><td class="poke-level">Lv. 46</td><td><span class="type-badge t-dark">Dark</span></td></tr>
+<tr><td class="poke-name">Cacturne</td><td class="poke-level">Lv. 46</td><td><span class="type-badge t-grass">Grass</span> <span class="type-badge t-dark">Dark</span></td></tr>
+<tr><td class="poke-name">Shiftry</td><td class="poke-level">Lv. 48</td><td><span class="type-badge t-grass">Grass</span> <span class="type-badge t-dark">Dark</span></td></tr>
+<tr><td class="poke-name">Sharpedo</td><td class="poke-level">Lv. 48</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-dark">Dark</span></td></tr>
+<tr><td class="poke-name">Absol</td><td class="poke-level">Lv. 49</td><td><span class="type-badge t-dark">Dark</span></td></tr>
+</table>
+<div class="strategy"><strong>Strategy</strong><p>Use <span class="weak">Fighting or Bug</span> types. Most of Sidney's team is frail. Hariyama with Brick Break can sweep. Cacturne and Shiftry are 4× weak to Bug.</p></div>
+</div>
+
+<div class="gym-card">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">E2</span><div class="gym-info"><h2>Phoebe</h2><span class="loc">Elite Four — Ghost Type</span></div></div>
+<div class="gym-meta"><span class="type-badge t-ghost">Ghost</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Dusclops</td><td class="poke-level">Lv. 48</td><td><span class="type-badge t-ghost">Ghost</span></td></tr>
+<tr><td class="poke-name">Banette</td><td class="poke-level">Lv. 49</td><td><span class="type-badge t-ghost">Ghost</span></td></tr>
+<tr><td class="poke-name">Sableye</td><td class="poke-level">Lv. 50</td><td><span class="type-badge t-dark">Dark</span> <span class="type-badge t-ghost">Ghost</span></td></tr>
+<tr><td class="poke-name">Banette</td><td class="poke-level">Lv. 49</td><td><span class="type-badge t-ghost">Ghost</span></td></tr>
+<tr><td class="poke-name">Dusclops</td><td class="poke-level">Lv. 51</td><td><span class="type-badge t-ghost">Ghost</span></td></tr>
+</table>
+<div class="strategy"><strong>Strategy</strong><p>Use <span class="weak">Dark</span> types. Normal and Fighting moves do NOT work on Ghosts. A Pokémon with Shadow Ball or Crunch is essential. <span class="danger">Danger:</span> Dusclops are very bulky and know Confuse Ray + Pressure. Sableye in Gen 3 has NO weaknesses (Fairy type didn't exist yet).</p></div>
+</div>
+
+<div class="gym-card">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">E3</span><div class="gym-info"><h2>Glacia</h2><span class="loc">Elite Four — Ice Type</span></div></div>
+<div class="gym-meta"><span class="type-badge t-ice">Ice</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Sealeo</td><td class="poke-level">Lv. 50</td><td><span class="type-badge t-ice">Ice</span> <span class="type-badge t-water">Water</span></td></tr>
+<tr><td class="poke-name">Glalie</td><td class="poke-level">Lv. 50</td><td><span class="type-badge t-ice">Ice</span></td></tr>
+<tr><td class="poke-name">Sealeo</td><td class="poke-level">Lv. 52</td><td><span class="type-badge t-ice">Ice</span> <span class="type-badge t-water">Water</span></td></tr>
+<tr><td class="poke-name">Glalie</td><td class="poke-level">Lv. 52</td><td><span class="type-badge t-ice">Ice</span></td></tr>
+<tr><td class="poke-name">Walrein</td><td class="poke-level">Lv. 53</td><td><span class="type-badge t-ice">Ice</span> <span class="type-badge t-water">Water</span></td></tr>
+</table>
+<div class="strategy"><strong>Strategy</strong><p>Use <span class="weak">Fighting, Electric, or Rock</span> types. Don't rely solely on Grass — Ice hits Grass super effectively. <span class="danger">Danger:</span> Walrein is extremely bulky with Ice Body. Bring Electric types for the Sealeo/Walrein Water combo.</p></div>
+</div>
+
+<div class="gym-card">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">E4</span><div class="gym-info"><h2>Drake</h2><span class="loc">Elite Four — Dragon Type</span></div></div>
+<div class="gym-meta"><span class="type-badge t-dragon">Dragon</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Shelgon</td><td class="poke-level">Lv. 52</td><td><span class="type-badge t-dragon">Dragon</span></td></tr>
+<tr><td class="poke-name">Altaria</td><td class="poke-level">Lv. 54</td><td><span class="type-badge t-dragon">Dragon</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Flygon</td><td class="poke-level">Lv. 53</td><td><span class="type-badge t-ground">Ground</span> <span class="type-badge t-dragon">Dragon</span></td></tr>
+<tr><td class="poke-name">Flygon</td><td class="poke-level">Lv. 53</td><td><span class="type-badge t-ground">Ground</span> <span class="type-badge t-dragon">Dragon</span></td></tr>
+<tr><td class="poke-name">Salamence</td><td class="poke-level">Lv. 55</td><td><span class="type-badge t-dragon">Dragon</span> <span class="type-badge t-flying">Flying</span></td></tr>
+</table>
+<div class="strategy"><strong>Strategy</strong><p>Use <span class="weak">Ice</span> — it's the key to this fight. Ice Beam on a fast Pokémon (Starmie, Walrein) can sweep most of Drake's team. <span class="danger">Danger:</span> Salamence is the biggest threat in the entire Elite Four. Level 55 with Dragon Claw, Flamethrower, Crunch, and Rock Slide. It WILL kill something if you don't have a solid Ice answer.</p></div>
+</div>
+
+<!-- CHAMPION -->
+<div class="section-title" id="champion">Champion — Wallace</div>
+
+<div class="gym-card">
+<div class="gym-header">
+<div class="gym-title"><span class="gym-num">★</span><div class="gym-info"><h2>Wallace</h2><span class="loc">Champion — Water Type</span></div></div>
+<div class="gym-meta"><span class="type-badge t-water">Water</span></div>
+</div>
+<table class="pokemon-table">
+<tr><th>Pokémon</th><th>Level</th><th>Type</th></tr>
+<tr><td class="poke-name">Wailord</td><td class="poke-level">Lv. 57</td><td><span class="type-badge t-water">Water</span></td></tr>
+<tr><td class="poke-name">Tentacruel</td><td class="poke-level">Lv. 55</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-poison">Poison</span></td></tr>
+<tr><td class="poke-name">Ludicolo</td><td class="poke-level">Lv. 56</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-grass">Grass</span></td></tr>
+<tr><td class="poke-name">Whiscash</td><td class="poke-level">Lv. 56</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-ground">Ground</span></td></tr>
+<tr><td class="poke-name">Gyarados</td><td class="poke-level">Lv. 56</td><td><span class="type-badge t-water">Water</span> <span class="type-badge t-flying">Flying</span></td></tr>
+<tr><td class="poke-name">Milotic</td><td class="poke-level">Lv. 58</td><td><span class="type-badge t-water">Water</span></td></tr>
+</table>
+<div class="strategy"><strong>Strategy</strong><p>No single type beats Wallace's team. You need <span class="weak">Electric</span> for most + <span class="weak">Grass</span> for Whiscash (4× weak). <span class="danger">Biggest Danger:</span> Milotic is extremely bulky, knows Recover, and has Ice Beam to kill Grass types. Bring Toxic or a strong Electric move. Ludicolo resists both Water and Electric — use Poison, Flying, or Bug moves. Gyarados is 4× weak to Electric.</p></div>
+</div>
+
+<div class="cta-box">
+<p>Track your Emerald Nuzlocke encounters and team status.</p>
+<a href="/" class="cta-btn">Open Nuzlocke Tracker</a>
+<a href="/type-chart.html" class="cta-btn secondary">Type Chart →</a>
+</div>
+</div>
+
+<footer class="footer"><p>Data verified against Bulbapedia & Pokémon Database. Pokémon is a trademark of Nintendo, Game Freak, and Creatures Inc.</p><p>© 2026 nuzlocketracker.xyz · <a href="/">Back to Tracker</a></p></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the Pokémon Emerald gym leaders?","acceptedAnswer":{"@type":"Answer","text":"The 8 Emerald gym leaders are: Roxanne (Rock), Brawly (Fighting), Wattson (Electric), Flannery (Fire), Norman (Normal), Winona (Flying), Tate & Liza (Psychic), and Juan (Water). The Champion is Wallace (Water)."}},{"@type":"Question","name":"What is the hardest gym in Pokémon Emerald?","acceptedAnswer":{"@type":"Answer","text":"Norman's Normal-type gym is widely considered the hardest. His Slaking has extremely high Attack and knows Facade, which doubles in power when the user has a status condition."}},{"@type":"Question","name":"Who is the Champion in Pokémon Emerald?","acceptedAnswer":{"@type":"Answer","text":"Wallace is the Champion in Pokémon Emerald. He uses a Water-type team featuring Wailord, Tentacruel, Ludicolo, Whiscash, Gyarados, and his ace Milotic at Level 58."}}]}
+</script>
+</body>
+</html>
