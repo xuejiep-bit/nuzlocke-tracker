@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7FCNMT7LQ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z7FCNMT7LQ');</script>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23e74c3c' stroke='%231a1a2e' stroke-width='2'/><path d='M1 16 A15 15 0 0 0 31 16' fill='white'/><rect x='1' y='14.5' width='30' height='3' fill='%231a1a2e'/><circle cx='16' cy='16' r='5' fill='white' stroke='%231a1a2e' stroke-width='2'/><circle cx='16' cy='16' r='2' fill='%231a1a2e'/></svg>">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nuzlocke Dupes Clause Explained — What It Is and How It Works</title>
+<meta name="description" content="What is Dupes Clause in a Nuzlocke? Complete explanation of how Dupes Clause works, why most players use it, and common variations.">
+<link rel="canonical" href="https://nuzlocketracker.xyz/nuzlocke-dupes-clause.html">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0f17;--bg2:#1a1a2e;--card:#16213e;--text:#ecf0f1;--text2:#95a5a6;--text3:#636e72;--border:#2c3e50;--red:#e74c3c;--red-glow:rgba(231,76,60,.3);--gold:#f1c40f;--green:#2ecc71;--radius:12px;--radius-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text2);line-height:1.8;min-height:100vh}
+.header{background:rgba(15,15,23,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--red);border-radius:50%;position:relative;box-shadow:0 0 16px var(--red-glow)}
+.logo-icon::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--bg)}
+.logo-icon::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:var(--bg);transform:translateY(-50%)}
+.nav-links{display:flex;gap:14px;list-style:none;flex-wrap:wrap}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+article{max-width:720px;margin:0 auto;padding:40px 24px 60px}
+.breadcrumb{font-size:.85rem;color:var(--text3);margin-bottom:20px}
+.breadcrumb a{color:var(--red);text-decoration:none}
+h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--text);margin-bottom:8px;line-height:1.3}
+h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta{font-size:.82rem;color:var(--text3);margin-bottom:32px}
+h2{font-family:'Chakra Petch',sans-serif;font-size:1.2rem;color:var(--text);margin:32px 0 12px}
+h3{font-size:1.05rem;color:var(--gold);margin:24px 0 8px}
+p{margin-bottom:16px;font-size:.95rem}
+strong{color:var(--text)}
+a{color:var(--red)}
+.tip{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:16px 20px;margin:20px 0}
+.tip strong{color:var(--gold)}
+.cta{background:var(--bg2);border:1px solid var(--red);border-radius:var(--radius);padding:24px;text-align:center;margin:32px 0}
+.cta p{margin-bottom:12px}
+.cta-btn{display:inline-block;background:var(--red);color:white;padding:10px 28px;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;margin:0 6px}
+.cta-btn.sec{background:transparent;border:1px solid var(--red)}
+.ilinks{margin-top:40px}.ilinks h3{font-family:'Chakra Petch',sans-serif;font-size:1rem;color:var(--text);margin-bottom:14px}
+.il{display:flex;flex-wrap:wrap;gap:8px}
+.il a{background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:var(--red);text-decoration:none}
+.il a:hover{background:rgba(231,76,60,.2)}
+.footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text3);font-size:.82rem}
+.footer a{color:var(--red);text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo"><div class="logo-icon"></div>Nuzlocke Tracker</a><nav><ul class="nav-links">
+<li><a href="/">Tracker</a></li><li><a href="/type-chart.html">Type Chart</a></li><li><a href="/emerald-gym-leaders.html">Emerald</a></li><li><a href="/firered-gym-leaders.html">FireRed</a></li><li><a href="/platinum-gym-leaders.html">Platinum</a></li><li><a href="/nuzlocke-rules.html">Rules</a></li>
+</ul></nav></div></header>
+<article>
+<div class="breadcrumb"><a href="/">Home</a> → <a href="/nuzlocke-rules.html">Rules</a> → Blog</div>
+<h1>Nuzlocke <span class='hl'>Dupes Clause</span> Explained</h1>
+<p class="meta">Updated March 2026 · nuzlocketracker.xyz</p>
+<p>The <strong>Dupes Clause</strong> (also called Duplicates Clause) is one of the most popular optional Nuzlocke rules. Almost every Nuzlocke player uses some version of it. Here's what it means and how to use it.</p>
+
+<h2>What Is Dupes Clause?</h2>
+<p><strong>If your first encounter on a route is a Pokémon species you have already caught (or is in the same evolutionary line), you may skip it and try again for a different Pokémon.</strong></p>
+<p>For example: You already have a Zubat. You enter a new cave and the first encounter is another Zubat. With Dupes Clause, you can skip this Zubat and keep looking until you find something different.</p>
+
+<h2>Why Use Dupes Clause?</h2>
+<p>Without Dupes Clause, you can end up with a team full of the same Pokémon — especially in games where certain species dominate the encounter tables (Zubat in caves, Tentacool on water, Rattata on early routes). This makes the game boring and limits your options.</p>
+<p>Dupes Clause exists to <strong>add variety to your team</strong> and make the run more interesting, without making it significantly easier. The vast majority of the Nuzlocke community considers it a standard inclusion.</p>
+
+<h2>Common Variations</h2>
+<h3>Basic Dupes Clause</h3>
+<p>Skip exact duplicate species only. If you have Zubat, you skip Zubat but must catch Golbat (because it's technically a different species in your Pokédex).</p>
+
+<h3>Species Clause (Strict Version)</h3>
+<p>Skip the entire evolutionary line. If you have Zubat, you also skip Golbat and Crobat. This is the more popular version and prevents you from accumulating multiple members of the same family.</p>
+
+<h3>Limited Rerolls</h3>
+<p>Some players limit how many times you can reroll. For example, you get 3 attempts to find a non-duplicate. If all 3 are duplicates, you get nothing from that route.</p>
+
+<h3>Dead Dupes</h3>
+<p>If a Pokémon species has died in your run, does it count as a "dupe"? This varies by player. Some allow catching a dead species again (giving you a second chance), while others consider dead Pokémon still "owned" for Dupes Clause purposes.</p>
+
+<h2>Our Recommendation</h2>
+<p>Use <strong>Species Clause</strong> (skip the entire evolutionary line) with unlimited rerolls. This gives the most variety and is the version used by most Nuzlocke content creators and communities.</p>
+
+<div class="tip"><strong>Tracking Tip:</strong> Use our <a href="/">Nuzlocke Tracker</a> to log every encounter — it helps you remember what you've already caught so you know when Dupes Clause applies.</div>
+<div class="cta"><p>Track your Nuzlocke encounters with our free tool.</p><a href="/" class="cta-btn">Open Tracker</a><a href="/nuzlocke-rules.html" class="cta-btn sec">All Rules →</a></div>
+<div class="ilinks"><h3>Explore More</h3><div class="il">
+<a href="/">Tracker</a><a href="/type-chart.html">Type Chart</a><a href="/emerald-gym-leaders.html">Emerald Gym Leaders</a><a href="/firered-gym-leaders.html">FireRed Gym Leaders</a><a href="/platinum-gym-leaders.html">Platinum Gym Leaders</a><a href="/emerald-nuzlocke-tier-list.html">Emerald Tier List</a><a href="/firered-nuzlocke-tier-list.html">FireRed Tier List</a><a href="/platinum-nuzlocke-tier-list.html">Platinum Tier List</a><a href="/nuzlocke-rules.html">Rules</a><a href="/nuzlocke-tips.html">Tips</a><a href="/best-pokemon-for-nuzlocke.html">Best Pokémon</a>
+</div></div>
+</article>
+<footer class="footer"><p>Pokémon is a trademark of Nintendo, Game Freak, and Creatures Inc. Not affiliated.</p><p>© 2026 nuzlocketracker.xyz · <a href="/">Back to Tracker</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Dupes Clause in a Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Dupes Clause means if your first encounter on a route is a Pokémon species you already have, you can skip it and try for a different encounter. It prevents your team from being filled with duplicates."}},{"@type":"Question","name":"Should I use Dupes Clause in my Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Yes, most Nuzlocke players use Dupes Clause. It adds team variety without making the run significantly easier. The Species Clause version (skipping entire evolutionary lines) is the most popular."}}]}</script>
+</body></html>
