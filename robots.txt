@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nuzlocketracker.xyz/sitemap.xml
+Sitemap: https://nuzlocketracker.xyz/sitemap/sitemap.xml
