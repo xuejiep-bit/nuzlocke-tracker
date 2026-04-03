@@ -43,6 +43,17 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .toast{position:fixed;bottom:20px;right:20px;background:var(--card);border:1px solid var(--alive);color:var(--text);padding:10px 18px;border-radius:var(--radius-sm);font-size:.85rem;opacity:0;transform:translateY(8px);transition:all .3s;z-index:1000;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}
 .faq-section{max-width:800px;margin:32px auto;padding:0 24px;position:relative;z-index:1}.faq-section h2{font-family:'Chakra Petch',sans-serif;font-size:1.3rem;margin-bottom:16px}.faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 20px;margin-bottom:8px}.faq-q{font-weight:600;margin-bottom:8px}.faq-a{color:var(--text2);font-size:.9rem}
 @media(max-width:768px){.main{grid-template-columns:1fr}.team{position:static}.hero{padding:32px 24px 24px}.nav-links{display:none}.setup-row,.encounter-form{flex-direction:column}.stats{grid-template-columns:repeat(2,1fr)}}
+.boss-table{overflow-x:auto;margin:20px 0}
+.boss-table table{width:100%;border-collapse:collapse;font-size:.85rem;background:var(--bg2);border-radius:8px;overflow:hidden}
+.boss-table thead{background:var(--card)}
+.boss-table th{padding:12px 16px;text-align:left;color:var(--red);font-family:'Chakra Petch',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border)}
+.boss-table td{padding:10px 16px;border-bottom:1px solid var(--border);color:var(--text2)}
+.boss-table td:first-child{color:var(--text);font-weight:600}
+.boss-table tr:hover{background:var(--card-h)}
+.boss-table td strong{color:var(--red)}
+.seo-content h3{font-family:'Chakra Petch',sans-serif;font-size:1.1rem;color:var(--gold,#f1c40f);margin:20px 0 10px}
+@media(max-width:768px){.boss-table{font-size:.75rem}.boss-table th,.boss-table td{padding:8px 10px}}
+
 </style>
 </head>
 <body>
@@ -90,13 +101,60 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </div>
 
 <div class="seo-content">
-<h2>Why Use a Dedicated Black Nuzlocke Tracker?</h2>
-<p>Pokémon Black introduces the Unova region with an entirely new Pokédex of 156 Pokémon — making encounter tracking essential. With 47 different encounter locations, you need a reliable tracker. This tracker comes with <strong>all Black routes pre-loaded</strong> so you can start immediately.</p>
-<h2>Black Nuzlocke Quick Tips</h2>
-<p><strong>Best Starter:</strong> Oshawott. Samurott has great bulk and learns strong moves early. Tepig is also solid — Emboar's Fire/Fighting typing handles many threats.</p>
-<p><strong>Key Encounters:</strong> Lillipup (Route 1 — Stoutland is S-tier), Roggenrola (Wellspring Cave), Sandile (Desert Resort — Krookodile is incredible), Darumaka (Desert Resort).</p>
-<p><strong>Hardest Gym:</strong> Elesa's Volt Switch strategy can be devastating. Bring a Ground-type like Sandile/Krokorok to shut her down completely.</p>
-<p><strong>Champion:</strong> N followed by Ghetsis. Ghetsis's Hydreigon at Level 54 is the most dangerous fight in the game.</p>
+<h2>Pokemon Black Gym Leaders and Boss Guide</h2>
+<p>Preparation is everything in a Nuzlocke. Here is every major boss fight in Pokemon Black with their teams, levels, and recommended counters.</p>
+
+<div class="boss-table">
+<table>
+<thead><tr><th>Boss</th><th>Type</th><th>Key Pokemon</th><th>Level Cap</th><th>Counter Strategy</th></tr></thead>
+<tbody>
+<tr><td>Cilan/Chili/Cress</td><td>Grass/Fire/Water</td><td>Lillipup + Starter Counter (Lv.14)</td><td>14</td><td>Use your gift monkey from Dreamyard</td></tr>
+<tr><td>Lenora</td><td>Normal</td><td>Herdier, Watchog (Lv.20)</td><td>20</td><td>Fighting: Timburr, Throh, or Sawk</td></tr>
+<tr><td>Burgh</td><td>Bug</td><td>Whirlipede, Dwebble, Leavanny (Lv.23)</td><td>23</td><td>Fire: Darumaka, Flying: Tranquill</td></tr>
+<tr><td>Elesa</td><td>Electric</td><td>Emolga x2, Zebstrika (Lv.27)</td><td>27</td><td>Ground: Krokorok immune to Volt Switch</td></tr>
+<tr><td>Clay</td><td>Ground</td><td>Krokorok, Palpitoad, Excadrill (Lv.31)</td><td>31</td><td>Water or Grass moves, Ice for Krokorok</td></tr>
+<tr><td>Skyla</td><td>Flying</td><td>Swoobat, Unfezant, Swanna (Lv.35)</td><td>35</td><td>Electric: Zebstrika, Rock: Boldore</td></tr>
+<tr><td>Brycen</td><td>Ice</td><td>Vanillish, Cryogonal, Beartic (Lv.39)</td><td>39</td><td>Fighting: Scrafty, Fire: Darmanitan</td></tr>
+<tr><td>Drayden/Iris</td><td>Dragon</td><td>Fraxure, Druddigon, Haxorus (Lv.43)</td><td>43</td><td>Ice moves are essential for this gym</td></tr>
+<tr><td>E4 Marshal</td><td>Fighting</td><td>Throh, Sawk, Conkeldurr, Mienshao (Lv.50)</td><td>50</td><td>Flying: Archeops, Psychic: Reuniclus</td></tr>
+<tr><td>E4 Grimsley</td><td>Dark</td><td>Scrafty, Krookodile, Bisharp (Lv.50)</td><td>50</td><td>Fighting: Conkeldurr, Bug: Galvantula</td></tr>
+<tr><td>E4 Caitlin</td><td>Psychic</td><td>Reuniclus, Musharna, Gothitelle (Lv.50)</td><td>50</td><td>Dark: Krookodile or Scrafty</td></tr>
+<tr><td>E4 Shauntal</td><td>Ghost</td><td>Cofagrigus, Jellicent, Chandelure (Lv.50)</td><td>50</td><td>Dark: Krookodile, Water for Chandelure</td></tr>
+<tr><td>N</td><td>Mixed</td><td>Reshiram/Zekrom (Lv.52)</td><td>52</td><td>Use your legendary from the cutscene</td></tr>
+<tr><td><strong>Ghetsis</strong></td><td>Mixed</td><td><strong>Hydreigon (Lv.54!)</strong></td><td>54</td><td>Bug (X-Scissor) or Fighting. Hardest fight in the game.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Black Nuzlocke Encounter Guide</h2>
+<p>Knowing which routes have the best encounters is crucial. Here are the must-know catches in Pokemon Black.</p>
+
+<h3>Early Game (Badges 1-3)</h3>
+<p><strong>Route 1 - Lillipup (S-tier):</strong> Stoutland is one of the best Pokemon in the entire game. Intimidate ability, great bulk, strong STAB Return. Do not overlook this common encounter.</p>
+<p><strong>Route 3 - Blitzle:</strong> Zebstrika is fast and hits hard. Motor Drive gives Electric immunity. Solid team member for the whole game.</p>
+<p><strong>Wellspring Cave - Roggenrola:</strong> Boldore is an excellent physical tank. Sturdy ability is a built-in Focus Sash that can save you from unexpected OHKOs.</p>
+<p><strong>Pinwheel Forest - Timburr:</strong> Gurdurr is excellent even without trade evolution. Great Attack stat and bulk for the mid-game.</p>
+
+<h3>Mid Game (Badges 4-6)</h3>
+<p><strong>Desert Resort - Sandile (S-tier):</strong> Krookodile with Moxie is a Nuzlocke monster. Ground/Dark typing gives amazing coverage. One of the best Pokemon in any Unova Nuzlocke.</p>
+<p><strong>Desert Resort - Darumaka (S-tier):</strong> Darmanitan has the highest Attack stat of any non-legendary in Unova. Sheer Force makes it a nuclear option against anything that does not resist Fire.</p>
+<p><strong>Chargestone Cave - Joltik:</strong> Galvantula with Compound Eyes plus Thunder has 91% accuracy. Fast special attacker with unique Bug/Electric coverage.</p>
+<p><strong>Route 6 - Deerling:</strong> Sawsbuck is surprisingly good with Sap Sipper (Grass immunity), Horn Leech for recovery, and Jump Kick for coverage.</p>
+
+<h3>Late Game (Badges 7-8 + E4)</h3>
+<p><strong>Twist Mountain - Cubchoo:</strong> Beartic provides crucial Ice-type coverage for Drayden Dragon gym. Not amazing stats but fills a critical role.</p>
+<p><strong>Route 9 - Pawniard:</strong> Bisharp is incredibly strong. Dark/Steel typing with Defiant ability can sweep entire teams.</p>
+<p><strong>Victory Road - Mienfoo:</strong> Mienshao is fast and powerful. Regenerator keeps it healthy throughout long Elite Four runs.</p>
+
+<h2>Level Caps for Pokemon Black Nuzlocke</h2>
+<p>In hardcore Nuzlocke rules, you cannot exceed the next gym leader strongest Pokemon level:</p>
+<p>Gym 1: <strong>14</strong> - Gym 2: <strong>20</strong> - Gym 3: <strong>23</strong> - Gym 4: <strong>27</strong> - Gym 5: <strong>31</strong> - Gym 6: <strong>35</strong> - Gym 7: <strong>39</strong> - Gym 8: <strong>43</strong> - Elite Four: <strong>50</strong> - N: <strong>52</strong> - Ghetsis: <strong>54</strong></p>
+
+<h2>Pokemon Black Nuzlocke Community Resources</h2>
+<p>Looking for more help with your Black Nuzlocke? Check out these community resources:</p>
+<p><a href="https://pokecommunity.com" target="_blank" rel="noopener">PokeCommunity Forums</a> - The largest Pokemon fan community with dedicated Nuzlocke discussion boards and team-building advice.</p>
+<p><a href="https://pokengine.org" target="_blank" rel="noopener">PokEngine</a> - Pokemon game engine and community tools for fans and developers.</p>
+<p>Need to check type matchups? Use our <a href="/type-chart.html">interactive Type Chart</a> to plan every battle.</p>
 </div>
 
 <section class="faq-section">
