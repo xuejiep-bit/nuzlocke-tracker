@@ -10,7 +10,7 @@
   gtag('config', 'G-Z7FCNMT7LQ');
 </script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nuzlocke Tracker | Record Encounters & Analyze Team Weaknesses - Free</title>
 <meta name="description" content="A free, ad-free Nuzlocke tracker. Record route encounters, monitor team type weaknesses, and track your run across all Pokemon games Gen 1-9. No sign-up needed, auto-saves to your browser.">
 <meta name="keywords" content="nuzlocke tracker, pokemon nuzlocke, nuzlocke challenge, pokemon tracker, nuzlocke run tracker">
@@ -29,33 +29,20 @@
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
 body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(231,76,60,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(52,152,219,.06) 0%,transparent 50%);pointer-events:none;z-index:0}
 .header{position:relative;z-index:10;border-bottom:1px solid var(--border);background:rgba(15,15,23,.9);backdrop-filter:blur(20px);padding:0 24px}
-.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;flex-wrap:wrap}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo-icon{width:32px;height:32px;background:var(--red);border-radius:50%;position:relative;box-shadow:0 0 16px var(--red-glow)}
 .logo-icon::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--bg)}
 .logo-icon::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:var(--bg);transform:translateY(-50%)}
 .nav-links{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
-.nav-links a{color:var(--text2);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;white-space:nowrap}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--red)}
-/* Dropdown menu */
-.dropdown{position:relative}
-.dropdown-menu{position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 0;min-width:160px;opacity:0;visibility:hidden;transition:all .2s;z-index:200;box-shadow:0 8px 20px rgba(0,0,0,.4)}
-.dropdown:hover .dropdown-menu{opacity:1;visibility:visible}
-.dropdown-menu li{list-style:none}
-.dropdown-menu a{display:block;padding:8px 20px;white-space:nowrap;font-size:.85rem}
-.dropdown-menu a:hover{background:var(--card);color:var(--red)}
-/* Mobile: touch-friendly dropdown using click (js) */
-@media (max-width:768px){
-  .dropdown-menu{position:static;opacity:1;visibility:visible;display:none;background:var(--card);margin-top:4px;box-shadow:none}
-  .dropdown.open .dropdown-menu{display:block}
-  .dropdown>a::after{content:" ▼";font-size:10px}
-  .dropdown.open>a::after{content:" ▲"}
-}
 .hero{position:relative;z-index:1;text-align:center;padding:48px 24px 32px;max-width:800px;margin:0 auto}
 .hero h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:12px}
 .hero h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:var(--text2);font-size:1rem;max-width:600px;margin:0 auto}
 .app{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px 40px}
+/* Setup */
 .setup{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
 .setup h2{font-family:'Chakra Petch',sans-serif;font-size:1.1rem;margin-bottom:16px}
 .setup-row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
@@ -68,12 +55,15 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .btn-red:hover{background:#c0392b;transform:translateY(-1px)}
 .btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
 .btn-ghost:hover{background:var(--card2)}
+/* Stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:24px}
 .stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
 .stat-n{font-family:'Chakra Petch',sans-serif;font-size:1.8rem;font-weight:700}
 .stat-n.alive{color:var(--alive)}.stat-n.dead{color:var(--dead)}.stat-n.boxed{color:var(--boxed)}.stat-n.total{color:var(--blue)}
 .stat-l{font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+/* Main layout */
 .main{display:grid;grid-template-columns:1fr 300px;gap:20px}
+/* Encounters */
 .panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
 .panel h2{font-family:'Chakra Petch',sans-serif;font-size:1.1rem;margin-bottom:16px}
 .encounter-form{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
@@ -96,6 +86,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .sbtn.x{border:1px solid transparent;color:var(--text3)}
 .sbtn.x:hover{color:var(--dead);border-color:var(--dead)}
 .empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:.9rem}
+/* Team panel */
 .team{position:sticky;top:20px;height:fit-content}
 .team h2{display:flex;justify-content:space-between;align-items:center}
 .team h2 span{font-size:.82rem;color:var(--text2);font-family:'Outfit',sans-serif;font-weight:400}
@@ -103,21 +94,25 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .slot.filled{border-style:solid;border-color:var(--alive);border-left:4px solid var(--alive);text-align:left;justify-content:flex-start}
 .slot .sname{font-weight:600;font-size:.9rem;color:var(--text)}
 .slot .sdetail{font-size:.75rem;color:var(--text2);margin-top:1px}
+/* Type weakness analysis */
 .weakness-panel{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 .weakness-panel h3{font-family:'Chakra Petch',sans-serif;font-size:.95rem;margin-bottom:10px;color:var(--gold)}
 .weak-grid{display:flex;flex-wrap:wrap;gap:4px}
 .wbadge{padding:3px 8px;border-radius:4px;font-size:.7rem;font-weight:600;color:#fff;text-transform:uppercase}
 .wbadge.danger{box-shadow:0 0 0 2px var(--red)}
+/* Autocomplete */
 .ac-wrap{position:relative;flex:1;min-width:100px}
 .ac-wrap input{width:100%}
 .ac-list{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);max-height:200px;overflow-y:auto;z-index:100;display:none}
 .ac-list.show{display:block}
 .ac-item{padding:8px 12px;font-size:.85rem;cursor:pointer;transition:background .1s}
 .ac-item:hover,.ac-item.selected{background:var(--card2);color:var(--red)}
+/* Type colors */
 .t-normal{background:#a8a878}.t-fire{background:#f08030}.t-water{background:#6890f0}.t-electric{background:#f8d030;color:#333}.t-grass{background:#78c850}
 .t-ice{background:#98d8d8;color:#333}.t-fighting{background:#c03028}.t-poison{background:#a040a0}.t-ground{background:#e0c068;color:#333}.t-flying{background:#a890f0}
 .t-psychic{background:#f85888}.t-bug{background:#a8b820}.t-rock{background:#b8a038}.t-ghost{background:#705898}.t-dragon{background:#7038f8}
 .t-dark{background:#705848}.t-steel{background:#b8b8d0;color:#333}.t-fairy{background:#ee99ac;color:#333}
+/* SEO content */
 .seo{position:relative;z-index:1;max-width:800px;margin:40px auto;padding:0 24px}
 .seo h2{font-family:'Chakra Petch',sans-serif;font-size:1.5rem;margin-bottom:12px;margin-top:40px}
 .seo h2:first-child{margin-top:0}
@@ -132,6 +127,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .faq{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:10px}
 .faq h4{font-size:.95rem;margin-bottom:6px;color:var(--text)}
 .faq p{margin-bottom:0;font-size:.9rem}
+/* Internal links */
 .ilinks{max-width:800px;margin:32px auto;padding:0 24px}
 .ilinks-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .ilinks-box h3{font-family:'Chakra Petch',sans-serif;font-size:1rem;color:var(--text);margin-bottom:14px}
@@ -143,41 +139,21 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .toast{position:fixed;bottom:20px;right:20px;background:var(--card);border:1px solid var(--alive);color:var(--text);padding:10px 18px;border-radius:var(--radius-sm);font-size:.85rem;opacity:0;transform:translateY(8px);transition:all .3s;z-index:1000;pointer-events:none}
 .toast.show{opacity:1;transform:translateY(0)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){
-  .main{grid-template-columns:1fr}.team{position:static}
-  .hero{padding:32px 24px 24px}
-  .setup-row,.encounter-form{flex-direction:column}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .header-inner{height:auto;padding:12px 0;gap:12px}
-  .nav-links{width:100%;justify-content:center;gap:10px;margin-top:4px}
-  .nav-links a{font-size:.75rem;white-space:normal}
-  .dropdown-menu a{white-space:normal}
-}
+@media(max-width:768px){.main{grid-template-columns:1fr}.team{position:static}.hero{padding:32px 24px 24px}.nav-links{display:none}.setup-row,.encounter-form{flex-direction:column}.stats{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 
 <header class="header"><div class="header-inner">
 <a href="/" class="logo"><div class="logo-icon"></div>Nuzlocke Tracker</a>
-<nav>
-<ul class="nav-links">
+<nav><ul class="nav-links">
 <li><a href="/" class="active">Tracker</a></li>
 <li><a href="/type-chart.html">Type Chart</a></li>
 <li><a href="/emerald-gym-leaders.html">Emerald</a></li>
 <li><a href="/firered-gym-leaders.html">FireRed</a></li>
 <li><a href="/platinum-gym-leaders.html">Platinum</a></li>
-<li class="dropdown">
-<a href="#">Guides ▼</a>
-<ul class="dropdown-menu">
-<li><a href="/nuzlocke-tips.html">Nuzlocke Tips</a></li>
-<li><a href="/best-pokemon-for-nuzlocke.html">Best Pokémon</a></li>
-<li><a href="/nuzlocke-guide-emerald.html">Emerald Full Guide</a></li>
-<li><a href="/nuzlocke-guide-firered.html">FireRed Full Guide</a></li>
-</ul>
-</li>
 <li><a href="/nuzlocke-rules.html">Rules</a></li>
-</ul>
-</nav>
+</ul></nav>
 </div></header>
 
 <section class="hero">
@@ -186,11 +162,12 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </section>
 
 <div class="app" id="tracker">
+<!-- Setup -->
 <div class="setup">
 <h2>⚙️ Run Settings</h2>
 <div class="setup-row">
 <div class="fg"><label>Game Version</label>
-<select id="gameSelect">
+<select id="gameSelect" onchange="onGameChange()">
 <option value="">Select a game...</option>
 <optgroup label="Generation I"><option value="red">Red</option><option value="blue">Blue</option><option value="yellow">Yellow</option></optgroup>
 <optgroup label="Generation II"><option value="gold">Gold</option><option value="silver">Silver</option><option value="crystal">Crystal</option></optgroup>
@@ -205,6 +182,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <div id="gymLink" style="margin-top:12px;display:none"><a id="gymLinkA" href="#" style="color:var(--red);font-size:.85rem">📖 View Gym Leaders & Strategy Guide →</a></div>
 </div>
 
+<!-- Stats -->
 <div class="stats">
 <div class="stat"><div class="stat-n total" id="sTotal">0</div><div class="stat-l">Total</div></div>
 <div class="stat"><div class="stat-n alive" id="sAlive">0</div><div class="stat-l">Alive</div></div>
@@ -212,6 +190,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <div class="stat"><div class="stat-n boxed" id="sBoxed">0</div><div class="stat-l">Boxed</div></div>
 </div>
 
+<!-- Main -->
 <div class="main">
 <div class="panel">
 <h2>📋 Encounters</h2>
@@ -243,25 +222,31 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </div>
 </div>
 
+<!-- SEO Content -->
 <section class="seo" id="rules">
 <h2>What Is a Nuzlocke Challenge?</h2>
 <p>A <strong>Nuzlocke challenge</strong> is a set of self-imposed rules that make Pokémon games significantly harder and more emotionally engaging. Created by artist Nick Franco in 2010, it has become one of the most popular ways to replay Pokémon games.</p>
+
 <h3>Core Nuzlocke Rules</h3>
 <div class="rules-grid">
 <div class="rule-card"><div class="rn">01</div><h4>First Encounter Only</h4><p>You may only catch the <strong>first Pokémon</strong> on each route. If it faints or flees, you get nothing.</p></div>
 <div class="rule-card"><div class="rn">02</div><h4>Faint = Death</h4><p>If a Pokémon faints, it is <strong>permanently dead</strong>. Box it or release it forever.</p></div>
 <div class="rule-card"><div class="rn">03</div><h4>Nickname Everything</h4><p>Every Pokémon must be given a <strong>nickname</strong> to build emotional attachment.</p></div>
 </div>
+
 <h3>Popular Optional Rules</h3>
 <p><strong>Dupes Clause</strong> lets you skip duplicate species. <strong>Level Caps</strong> prevent over-leveling past the next gym leader. <strong>Set Mode</strong> removes free switches after KOs. <strong>Hardcore Nuzlocke</strong> combines all of these with no items in battle.</p>
+
 <h2>Why Use a Nuzlocke Tracker?</h2>
 <p>Keeping track manually is tedious and error-prone. This <strong>Nuzlocke tracker</strong> gives you a clean way to <strong>record every encounter</strong>, <strong>monitor your team</strong> at a glance, <strong>analyze type weaknesses</strong> in your team, and <strong>avoid mistakes</strong> like forgetting which Pokémon are dead. Your data saves locally — close the tab and come back anytime.</p>
+
 <h2>Game-Specific Nuzlocke Guides</h2>
 <p>Planning a Nuzlocke run? Check out our complete gym leader guides with team data, levels, and battle strategy for the most popular games:</p>
 <p><a href="/emerald-gym-leaders.html" style="color:var(--red)">Pokémon Emerald Gym Leaders</a> — 8 gyms + Elite Four + Champion Wallace</p>
 <p><a href="/firered-gym-leaders.html" style="color:var(--red)">Pokémon FireRed Gym Leaders</a> — 8 gyms + Elite Four + Champion Blue</p>
 <p><a href="/platinum-gym-leaders.html" style="color:var(--red)">Pokémon Platinum Gym Leaders</a> — 8 gyms + Elite Four + Champion Cynthia</p>
 <p>Need to check type matchups? Use our <a href="/type-chart.html" style="color:var(--red)">interactive Type Effectiveness Chart</a>.</p>
+
 <h2 id="faq">Frequently Asked Questions</h2>
 <div class="faq"><h4>Is this Nuzlocke Tracker free?</h4><p>Yes, completely free. No sign-up, no ads, no premium features locked behind a paywall.</p></div>
 <div class="faq"><h4>Does my data get saved?</h4><p>Yes. All data saves to your browser's local storage automatically. Close the page and come back — your run will still be there.</p></div>
@@ -270,6 +255,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <div class="faq"><h4>Does the tracker analyze my team's weaknesses?</h4><p>Yes. When you add Pokémon to your team, the tracker automatically shows your team's type weaknesses so you can identify coverage gaps before important battles.</p></div>
 </section>
 
+<!-- Internal Links -->
 <div class="ilinks">
 <div class="ilinks-box">
 <h3>Explore More Nuzlocke Resources</h3>
@@ -297,28 +283,40 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 // ===== DATA =====
 let encounters=[], settings={game:'',runName:''};
 
-// ===== POKEMON LIST =====
+// ===== POKEMON LIST (common Nuzlocke Pokemon) =====
 const POKEMON=["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran♀","Nidorina","Nidoqueen","Nidoran♂","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Crobat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Steelix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Scizor","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Espeon","Umbreon","Leafeon","Glaceon","Snorlax","Dratini","Dragonair","Dragonite","Chikorita","Cyndaquil","Totodile","Hoothoot","Noctowl","Sentret","Furret","Ledyba","Ledian","Spinarak","Ariados","Togepi","Togetic","Togekiss","Mareep","Flaaffy","Ampharos","Bellossom","Marill","Azumarill","Sudowoodo","Politoed","Hoppip","Skiploom","Jumpluff","Aipom","Sunkern","Sunflora","Wooper","Quagsire","Murkrow","Honchkrow","Misdreavus","Mismagius","Unown","Girafarig","Pineco","Forretress","Dunsparce","Gligar","Gliscor","Snubbull","Granbull","Qwilfish","Heracross","Sneasel","Weavile","Teddiursa","Ursaring","Slugma","Magcargo","Swinub","Piloswine","Mamoswine","Corsola","Remoraid","Octillery","Delibird","Skarmory","Houndour","Houndoom","Kingdra","Phanpy","Donphan","Stantler","Smeargle","Tyrogue","Hitmontop","Smoochum","Elekid","Magby","Miltank","Larvitar","Pupitar","Tyranitar","Treecko","Grovyle","Sceptile","Torchic","Combusken","Blaziken","Mudkip","Marshtomp","Swampert","Poochyena","Mightyena","Zigzagoon","Linoone","Wurmple","Silcoon","Beautifly","Cascoon","Dustox","Lotad","Lombre","Ludicolo","Seedot","Nuzleaf","Shiftry","Taillow","Swellow","Wingull","Pelipper","Ralts","Kirlia","Gardevoir","Gallade","Surskit","Masquerain","Shroomish","Breloom","Slakoth","Vigoroth","Slaking","Nincada","Ninjask","Shedinja","Whismur","Loudred","Exploud","Makuhita","Hariyama","Nosepass","Probopass","Skitty","Delcatty","Sableye","Mawile","Aron","Lairon","Aggron","Meditite","Medicham","Electrike","Manectric","Plusle","Minun","Volbeat","Illumise","Roselia","Roserade","Gulpin","Swalot","Carvanha","Sharpedo","Wailmer","Wailord","Numel","Camerupt","Torkoal","Spoink","Grumpig","Spinda","Trapinch","Vibrava","Flygon","Cacnea","Cacturne","Swablu","Altaria","Zangoose","Seviper","Lunatone","Solrock","Barboach","Whiscash","Corphish","Crawdaunt","Baltoy","Claydol","Lileep","Cradily","Anorith","Armaldo","Feebas","Milotic","Castform","Kecleon","Shuppet","Banette","Duskull","Dusclops","Dusknoir","Tropius","Chimecho","Absol","Snorunt","Glalie","Froslass","Spheal","Sealeo","Walrein","Clamperl","Huntail","Gorebyss","Relicanth","Luvdisc","Bagon","Shelgon","Salamence","Beldum","Metang","Metagross","Turtwig","Grotle","Torterra","Chimchar","Monferno","Infernape","Piplup","Prinplup","Empoleon","Starly","Staravia","Staraptor","Bidoof","Bibarel","Kricketot","Kricketune","Shinx","Luxio","Luxray","Budew","Cranidos","Rampardos","Shieldon","Bastiodon","Burmy","Wormadam","Mothim","Combee","Vespiquen","Pachirisu","Buizel","Floatzel","Cherubi","Cherrim","Shellos","Gastrodon","Drifloon","Drifblim","Buneary","Lopunny","Stunky","Skuntank","Bronzor","Bronzong","Garchomp","Gible","Gabite","Hippopotas","Hippowdon","Skorupi","Drapion","Croagunk","Toxicroak","Carnivine","Finneon","Lumineon","Snover","Abomasnow","Magnezone","Electivire","Magmortar","Yanmega","Lucario","Riolu"];
 
-const POKE_TYPES={"Bulbasaur":["Grass","Poison"],"Ivysaur":["Grass","Poison"],"Venusaur":["Grass","Poison"],"Charmander":["Fire"],"Charmeleon":["Fire"],"Charizard":["Fire","Flying"],"Squirtle":["Water"],"Wartortle":["Water"],"Blastoise":["Water"],"Caterpie":["Bug"],"Metapod":["Bug"],"Butterfree":["Bug","Flying"],"Weedle":["Bug","Poison"],"Kakuna":["Bug","Poison"],"Beedrill":["Bug","Poison"],"Pidgey":["Normal","Flying"],"Pidgeotto":["Normal","Flying"],"Pidgeot":["Normal","Flying"],"Rattata":["Normal"],"Raticate":["Normal"],"Spearow":["Normal","Flying"],"Fearow":["Normal","Flying"],"Ekans":["Poison"],"Arbok":["Poison"],"Pikachu":["Electric"],"Raichu":["Electric"],"Sandshrew":["Ground"],"Sandslash":["Ground"],"Nidoran♀":["Poison"],"Nidorina":["Poison"],"Nidoqueen":["Poison","Ground"],"Nidoran♂":["Poison"],"Nidorino":["Poison"],"Nidoking":["Poison","Ground"],"Vulpix":["Fire"],"Ninetales":["Fire"],"Zubat":["Poison","Flying"],"Golbat":["Poison","Flying"],"Crobat":["Poison","Flying"],"Oddish":["Grass","Poison"],"Gloom":["Grass","Poison"],"Vileplume":["Grass","Poison"],"Paras":["Bug","Grass"],"Parasect":["Bug","Grass"],"Diglett":["Ground"],"Dugtrio":["Ground"],"Psyduck":["Water"],"Golduck":["Water"],"Mankey":["Fighting"],"Primeape":["Fighting"],"Growlithe":["Fire"],"Arcanine":["Fire"],"Poliwag":["Water"],"Poliwhirl":["Water"],"Poliwrath":["Water","Fighting"],"Abra":["Psychic"],"Kadabra":["Psychic"],"Alakazam":["Psychic"],"Machop":["Fighting"],"Machoke":["Fighting"],"Machamp":["Fighting"],"Tentacool":["Water","Poison"],"Tentacruel":["Water","Poison"],"Geodude":["Rock","Ground"],"Graveler":["Rock","Ground"],"Golem":["Rock","Ground"],"Ponyta":["Fire"],"Rapidash":["Fire"],"Slowpoke":["Water","Psychic"],"Slowbro":["Water","Psychic"],"Magnemite":["Electric","Steel"],"Magneton":["Electric","Steel"],"Gastly":["Ghost","Poison"],"Haunter":["Ghost","Poison"],"Gengar":["Ghost","Poison"],"Onix":["Rock","Ground"],"Steelix":["Steel","Ground"],"Drowzee":["Psychic"],"Hypno":["Psychic"],"Voltorb":["Electric"],"Electrode":["Electric"],"Exeggcute":["Grass","Psychic"],"Exeggutor":["Grass","Psychic"],"Cubone":["Ground"],"Marowak":["Ground"],"Koffing":["Poison"],"Weezing":["Poison"],"Rhyhorn":["Ground","Rock"],"Rhydon":["Ground","Rock"],"Staryu":["Water"],"Starmie":["Water","Psychic"],"Mr. Mime":["Psychic"],"Scyther":["Bug","Flying"],"Scizor":["Bug","Steel"],"Magikarp":["Water"],"Gyarados":["Water","Flying"],"Lapras":["Water","Ice"],"Eevee":["Normal"],"Vaporeon":["Water"],"Jolteon":["Electric"],"Flareon":["Fire"],"Espeon":["Psychic"],"Umbreon":["Dark"],"Snorlax":["Normal"],"Dratini":["Dragon"],"Dragonair":["Dragon"],"Dragonite":["Dragon","Flying"],"Togekiss":["Normal","Flying"],"Ampharos":["Electric"],"Azumarill":["Water"],"Quagsire":["Water","Ground"],"Heracross":["Bug","Fighting"],"Sneasel":["Dark","Ice"],"Weavile":["Dark","Ice"],"Skarmory":["Steel","Flying"],"Houndoom":["Dark","Fire"],"Kingdra":["Water","Dragon"],"Tyranitar":["Rock","Dark"],"Sceptile":["Grass"],"Blaziken":["Fire","Fighting"],"Swampert":["Water","Ground"],"Mightyena":["Dark"],"Ludicolo":["Water","Grass"],"Shiftry":["Grass","Dark"],"Swellow":["Normal","Flying"],"Pelipper":["Water","Flying"],"Gardevoir":["Psychic"],"Gallade":["Psychic","Fighting"],"Breloom":["Grass","Fighting"],"Slaking":["Normal"],"Hariyama":["Fighting"],"Aggron":["Steel","Rock"],"Manectric":["Electric"],"Sharpedo":["Water","Dark"],"Camerupt":["Fire","Ground"],"Torkoal":["Fire"],"Flygon":["Ground","Dragon"],"Altaria":["Dragon","Flying"],"Crawdaunt":["Water","Dark"],"Claydol":["Ground","Psychic"],"Milotic":["Water"],"Absol":["Dark"],"Glalie":["Ice"],"Froslass":["Ice","Ghost"],"Walrein":["Ice","Water"],"Salamence":["Dragon","Flying"],"Metagross":["Steel","Psychic"],"Torterra":["Grass","Ground"],"Infernape":["Fire","Fighting"],"Empoleon":["Water","Steel"],"Staraptor":["Normal","Flying"],"Luxray":["Electric"],"Roserade":["Grass","Poison"],"Gastrodon":["Water","Ground"],"Garchomp":["Dragon","Ground"],"Lucario":["Fighting","Steel"],"Hippowdon":["Ground"],"Drapion":["Poison","Dark"],"Abomasnow":["Grass","Ice"],"Magnezone":["Electric","Steel"],"Electivire":["Electric"],"Magmortar":["Fire"],"Yanmega":["Bug","Flying"],"Spiritomb":["Ghost","Dark"],"Floatzel":["Water"],"Bronzong":["Steel","Psychic"]};
+// ===== POKEMON TYPES =====
+const POKE_TYPES={"Bulbasaur":["Grass","Poison"],"Ivysaur":["Grass","Poison"],"Venusaur":["Grass","Poison"],"Charmander":["Fire"],"Charmeleon":["Fire"],"Charizard":["Fire","Flying"],"Squirtle":["Water"],"Wartortle":["Water"],"Blastoise":["Water"],"Caterpie":["Bug"],"Metapod":["Bug"],"Butterfree":["Bug","Flying"],"Weedle":["Bug","Poison"],"Kakuna":["Bug","Poison"],"Beedrill":["Bug","Poison"],"Pidgey":["Normal","Flying"],"Pidgeotto":["Normal","Flying"],"Pidgeot":["Normal","Flying"],"Rattata":["Normal"],"Raticate":["Normal"],"Spearow":["Normal","Flying"],"Fearow":["Normal","Flying"],"Ekans":["Poison"],"Arbok":["Poison"],"Pikachu":["Electric"],"Raichu":["Electric"],"Sandshrew":["Ground"],"Sandslash":["Ground"],"Nidoran♀":["Poison"],"Nidorina":["Poison"],"Nidoqueen":["Poison","Ground"],"Nidoran♂":["Poison"],"Nidorino":["Poison"],"Nidoking":["Poison","Ground"],"Vulpix":["Fire"],"Ninetales":["Fire"],"Zubat":["Poison","Flying"],"Golbat":["Poison","Flying"],"Crobat":["Poison","Flying"],"Oddish":["Grass","Poison"],"Gloom":["Grass","Poison"],"Vileplume":["Grass","Poison"],"Paras":["Bug","Grass"],"Parasect":["Bug","Grass"],"Diglett":["Ground"],"Dugtrio":["Ground"],"Psyduck":["Water"],"Golduck":["Water"],"Mankey":["Fighting"],"Primeape":["Fighting"],"Growlithe":["Fire"],"Arcanine":["Fire"],"Poliwag":["Water"],"Poliwhirl":["Water"],"Poliwrath":["Water","Fighting"],"Abra":["Psychic"],"Kadabra":["Psychic"],"Alakazam":["Psychic"],"Machop":["Fighting"],"Machoke":["Fighting"],"Machamp":["Fighting"],"Tentacool":["Water","Poison"],"Tentacruel":["Water","Poison"],"Geodude":["Rock","Ground"],"Graveler":["Rock","Ground"],"Golem":["Rock","Ground"],"Ponyta":["Fire"],"Rapidash":["Fire"],"Slowpoke":["Water","Psychic"],"Slowbro":["Water","Psychic"],"Magnemite":["Electric","Steel"],"Magneton":["Electric","Steel"],"Gastly":["Ghost","Poison"],"Haunter":["Ghost","Poison"],"Gengar":["Ghost","Poison"],"Onix":["Rock","Ground"],"Steelix":["Steel","Ground"],"Drowzee":["Psychic"],"Hypno":["Psychic"],"Voltorb":["Electric"],"Electrode":["Electric"],"Exeggcute":["Grass","Psychic"],"Exeggutor":["Grass","Psychic"],"Cubone":["Ground"],"Marowak":["Ground"],"Koffing":["Poison"],"Weezing":["Poison"],"Rhyhorn":["Ground","Rock"],"Rhydon":["Ground","Rock"],"Staryu":["Water"],"Starmie":["Water","Psychic"],"Mr. Mime":["Psychic"],"Scyther":["Bug","Flying"],"Scizor":["Bug","Steel"],"Magikarp":["Water"],"Gyarados":["Water","Flying"],"Lapras":["Water","Ice"],"Eevee":["Normal"],"Vaporeon":["Water"],"Jolteon":["Electric"],"Flareon":["Fire"],"Espeon":["Psychic"],"Umbreon":["Dark"],"Snorlax":["Normal"],"Dratini":["Dragon"],"Dragonair":["Dragon"],"Dragonite":["Dragon","Flying"],"Crobat":["Poison","Flying"],"Togekiss":["Normal","Flying"],"Ampharos":["Electric"],"Azumarill":["Water"],"Quagsire":["Water","Ground"],"Heracross":["Bug","Fighting"],"Sneasel":["Dark","Ice"],"Weavile":["Dark","Ice"],"Skarmory":["Steel","Flying"],"Houndoom":["Dark","Fire"],"Kingdra":["Water","Dragon"],"Tyranitar":["Rock","Dark"],"Sceptile":["Grass"],"Blaziken":["Fire","Fighting"],"Swampert":["Water","Ground"],"Mightyena":["Dark"],"Ludicolo":["Water","Grass"],"Shiftry":["Grass","Dark"],"Swellow":["Normal","Flying"],"Pelipper":["Water","Flying"],"Gardevoir":["Psychic"],"Gallade":["Psychic","Fighting"],"Breloom":["Grass","Fighting"],"Slaking":["Normal"],"Hariyama":["Fighting"],"Aggron":["Steel","Rock"],"Manectric":["Electric"],"Sharpedo":["Water","Dark"],"Camerupt":["Fire","Ground"],"Torkoal":["Fire"],"Flygon":["Ground","Dragon"],"Altaria":["Dragon","Flying"],"Crawdaunt":["Water","Dark"],"Claydol":["Ground","Psychic"],"Milotic":["Water"],"Absol":["Dark"],"Glalie":["Ice"],"Froslass":["Ice","Ghost"],"Walrein":["Ice","Water"],"Salamence":["Dragon","Flying"],"Metagross":["Steel","Psychic"],"Torterra":["Grass","Ground"],"Infernape":["Fire","Fighting"],"Empoleon":["Water","Steel"],"Staraptor":["Normal","Flying"],"Luxray":["Electric"],"Roserade":["Grass","Poison"],"Gastrodon":["Water","Ground"],"Garchomp":["Dragon","Ground"],"Lucario":["Fighting","Steel"],"Hippowdon":["Ground"],"Drapion":["Poison","Dark"],"Abomasnow":["Grass","Ice"],"Magnezone":["Electric","Steel"],"Electivire":["Electric"],"Magmortar":["Fire"],"Yanmega":["Bug","Flying"],"Spiritomb":["Ghost","Dark"],"Floatzel":["Water"],"Bronzong":["Steel","Psychic"]};
 
-const ROUTES={emerald:["Route 101","Route 102","Route 103","Route 104","Petalburg Woods","Route 105","Route 106","Granite Cave","Route 107","Route 108","Route 109","Route 110","Route 111","Route 112","Route 113","Route 114","Meteor Falls","Route 115","Route 116","Rusturf Tunnel","Route 117","Route 118","Route 119","Route 120","Route 121","Route 122","Route 123","Route 124","Route 125","Route 126","Route 127","Route 128","Route 129","Route 130","Route 131","Route 132","Route 133","Route 134","Petalburg City (Surf)","Dewford Town (Surf)","Slateport City (Surf)","Mauville City","Lavaridge Town","Fortree City","Lilycove City","Mossdeep City","Sootopolis City","Pacifidlog Town","Ever Grande City","Victory Road","New Mauville","Shoal Cave","Safari Zone","Sky Pillar"],
+// ===== ROUTES PER GAME =====
+const ROUTES={
+emerald:["Route 101","Route 102","Route 103","Route 104","Petalburg Woods","Route 105","Route 106","Granite Cave","Route 107","Route 108","Route 109","Route 110","Route 111","Route 112","Route 113","Route 114","Meteor Falls","Route 115","Route 116","Rusturf Tunnel","Route 117","Route 118","Route 119","Route 120","Route 121","Route 122","Route 123","Route 124","Route 125","Route 126","Route 127","Route 128","Route 129","Route 130","Route 131","Route 132","Route 133","Route 134","Petalburg City (Surf)","Dewford Town (Surf)","Slateport City (Surf)","Mauville City","Lavaridge Town","Fortree City","Lilycove City","Mossdeep City","Sootopolis City","Pacifidlog Town","Ever Grande City","Victory Road","New Mauville","Shoal Cave","Safari Zone","Sky Pillar"],
 firered:["Route 1","Route 2","Route 3","Route 4","Mt. Moon","Route 5","Route 6","Route 7","Route 8","Route 9","Route 10","Rock Tunnel","Route 11","Route 12","Route 13","Route 14","Route 15","Route 16","Route 17","Route 18","Route 19","Route 20","Route 21","Route 22","Route 23","Route 24","Route 25","Viridian Forest","Diglett's Cave","S.S. Anne","Pokémon Tower","Safari Zone","Seafoam Islands","Pokémon Mansion","Power Plant","Victory Road","Cerulean Cave"],
-platinum:["Route 201","Route 202","Route 203","Route 204","Ravaged Path","Route 205","Eterna Forest","Route 206","Route 207","Route 208","Route 209","Lost Tower","Route 210","Route 211","Route 212","Route 213","Route 214","Route 215","Route 216","Route 217","Route 218","Route 219","Route 220","Route 221","Route 222","Route 223","Route 224","Route 225","Route 226","Route 227","Route 228","Route 229","Route 230","Oreburgh Gate","Oreburgh Mine","Mt. Coronet","Iron Island","Old Chateau","Wayward Cave","Lake Verity","Lake Valor","Lake Acuity","Victory Road","Stark Mountain"]};
+platinum:["Route 201","Route 202","Route 203","Route 204","Ravaged Path","Route 205","Eterna Forest","Route 206","Route 207","Route 208","Route 209","Lost Tower","Route 210","Route 211","Route 212","Route 213","Route 214","Route 215","Route 216","Route 217","Route 218","Route 219","Route 220","Route 221","Route 222","Route 223","Route 224","Route 225","Route 226","Route 227","Route 228","Route 229","Route 230","Oreburgh Gate","Oreburgh Mine","Mt. Coronet","Iron Island","Old Chateau","Wayward Cave","Lake Verity","Lake Valor","Lake Acuity","Victory Road","Stark Mountain"]
+};
 
+// ===== TYPE EFFECTIVENESS (for weakness calc) =====
 const TYPES=["Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"];
 const TYPE_WEAK={"Normal":["Fighting"],"Fire":["Water","Ground","Rock"],"Water":["Electric","Grass"],"Electric":["Ground"],"Grass":["Fire","Ice","Poison","Flying","Bug"],"Ice":["Fire","Fighting","Rock","Steel"],"Fighting":["Flying","Psychic","Fairy"],"Poison":["Ground","Psychic"],"Ground":["Water","Grass","Ice"],"Flying":["Electric","Ice","Rock"],"Psychic":["Bug","Ghost","Dark"],"Bug":["Fire","Flying","Rock"],"Rock":["Water","Grass","Fighting","Ground","Steel"],"Ghost":["Ghost","Dark"],"Dragon":["Ice","Dragon","Fairy"],"Dark":["Fighting","Bug","Fairy"],"Steel":["Fire","Fighting","Ground"],"Fairy":["Poison","Steel"]};
 const TYPE_CLS={"Normal":"t-normal","Fire":"t-fire","Water":"t-water","Electric":"t-electric","Grass":"t-grass","Ice":"t-ice","Fighting":"t-fighting","Poison":"t-poison","Ground":"t-ground","Flying":"t-flying","Psychic":"t-psychic","Bug":"t-bug","Rock":"t-rock","Ghost":"t-ghost","Dragon":"t-dragon","Dark":"t-dark","Steel":"t-steel","Fairy":"t-fairy"};
 
+// ===== LOCAL STORAGE =====
 function save(){settings.game=document.getElementById('gameSelect').value;settings.runName=document.getElementById('runName').value;localStorage.setItem('nz_enc',JSON.stringify(encounters));localStorage.setItem('nz_set',JSON.stringify(settings))}
 function load(){try{const e=localStorage.getItem('nz_enc'),s=localStorage.getItem('nz_set');if(e)encounters=JSON.parse(e);if(s){settings=JSON.parse(s);document.getElementById('gameSelect').value=settings.game||'';document.getElementById('runName').value=settings.runName||'';onGameChange()}}catch(e){}}
+
+// ===== TOAST =====
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+// ===== GAME CHANGE =====
 function onGameChange(){
   const g=document.getElementById('gameSelect').value;
   const rs=document.getElementById('routeSelect');
   const rc=document.getElementById('routeCustom');
   const gl=document.getElementById('gymLink');
   const gla=document.getElementById('gymLinkA');
+  
+  // Show route dropdown or custom input
   const routes=ROUTES[g];
   if(routes){
     rs.innerHTML='<option value="">Select route...</option>'+routes.map(r=>`<option value="${r}">${r}</option>`).join('')+'<option value="__custom">Other...</option>';
@@ -327,12 +325,16 @@ function onGameChange(){
   }else{
     rs.style.display='none';rc.style.display='';
   }
+  
+  // Show gym leader link
   if(['emerald'].includes(g)){gl.style.display='block';gla.href='/emerald-gym-leaders.html';gla.textContent='📖 View Emerald Gym Leaders & Strategy Guide →'}
   else if(['firered','leafgreen'].includes(g)){gl.style.display='block';gla.href='/firered-gym-leaders.html';gla.textContent='📖 View FireRed Gym Leaders & Strategy Guide →'}
   else if(['platinum'].includes(g)){gl.style.display='block';gla.href='/platinum-gym-leaders.html';gla.textContent='📖 View Platinum Gym Leaders & Strategy Guide →'}
   else{gl.style.display='none'}
   save();
 }
+
+// ===== AUTOCOMPLETE =====
 let acIdx=-1;
 function onPokeInput(){
   const v=document.getElementById('pokeName').value.trim().toLowerCase();
@@ -353,6 +355,8 @@ function onPokeKey(e){
 }
 function pickPoke(name){document.getElementById('pokeName').value=name;document.getElementById('acList').classList.remove('show');document.getElementById('nick').focus()}
 document.addEventListener('click',e=>{if(!e.target.closest('.ac-wrap'))document.getElementById('acList').classList.remove('show')});
+
+// ===== ADD ENCOUNTER =====
 function addEnc(){
   const nameEl=document.getElementById('pokeName'),nickEl=document.getElementById('nick'),routeSel=document.getElementById('routeSelect'),routeC=document.getElementById('routeCustom'),statusEl=document.getElementById('statusSel');
   const name=nameEl.value.trim();
@@ -364,15 +368,21 @@ function addEnc(){
   nameEl.value='';nickEl.value='';routeC.value='';if(routeSel.style.display!=='none')routeSel.value='';statusEl.value='alive';nameEl.focus();
   toast(`${nickEl.value.trim()||name} added!`);
 }
+
+// ===== STATUS / DELETE =====
 function setStatus(id,s){const e=encounters.find(x=>x.id===id);if(e){e.status=s;save();renderAll();toast(`${e.nickname||e.name} → ${s}`)}}
 function delEnc(id){const e=encounters.find(x=>x.id===id);if(e&&confirm(`Remove ${e.nickname||e.name}?`)){encounters=encounters.filter(x=>x.id!==id);save();renderAll();toast(`Removed`)}}
 function resetRun(){if(confirm('Reset entire run? Cannot be undone.')){encounters=[];settings={game:'',runName:''};document.getElementById('gameSelect').value='';document.getElementById('runName').value='';localStorage.removeItem('nz_enc');localStorage.removeItem('nz_set');onGameChange();renderAll();toast('Run reset')}}
+
+// ===== RENDER =====
 function renderAll(){renderEnc();renderStats();renderTeam()}
+
 function renderEnc(){
   const c=document.getElementById('encList');
   if(encounters.length===0){c.innerHTML='<div class="empty">🎮 No encounters yet. Add your first Pokémon above!</div>';return}
   c.innerHTML=encounters.map(e=>`<div class="enc ${e.status}"><div class="enc-info"><div class="enc-name">${e.nickname?e.nickname+' <span style="color:var(--text3);font-weight:400">('+e.name+')</span>':e.name}</div><div class="enc-detail">📍 ${e.route}</div></div><div class="enc-actions"><button class="sbtn a ${e.status==='alive'?'on':''}" onclick="setStatus(${e.id},'alive')" title="Alive">✓</button><button class="sbtn b ${e.status==='boxed'?'on':''}" onclick="setStatus(${e.id},'boxed')" title="Boxed">📦</button><button class="sbtn d ${e.status==='dead'?'on':''}" onclick="setStatus(${e.id},'dead')" title="Dead">💀</button><button class="sbtn x" onclick="delEnc(${e.id})" title="Remove">✕</button></div></div>`).join('');
 }
+
 function renderStats(){
   const a=encounters.filter(e=>e.status==='alive').length,d=encounters.filter(e=>e.status==='dead').length,b=encounters.filter(e=>e.status==='boxed').length;
   document.getElementById('sTotal').textContent=encounters.length;
@@ -380,6 +390,7 @@ function renderStats(){
   document.getElementById('sDead').textContent=d;
   document.getElementById('sBoxed').textContent=b;
 }
+
 function renderTeam(){
   const alive=encounters.filter(e=>e.status==='alive').slice(0,6);
   document.getElementById('teamCnt').textContent=alive.length+'/6';
@@ -390,11 +401,17 @@ function renderTeam(){
     else{h+=`<div class="slot">Slot ${i+1} — Empty</div>`}
   }
   ts.innerHTML=h;
+  
+  // Type weakness analysis
   const wp=document.getElementById('weakPanel'),wg=document.getElementById('weakGrid');
   if(alive.length===0){wp.style.display='none';return}
+  
   const teamTypes=new Set();
   alive.forEach(p=>{const t=POKE_TYPES[p.name];if(t)t.forEach(x=>teamTypes.add(x))});
+  
   if(teamTypes.size===0){wp.style.display='none';return}
+  
+  // Count weaknesses
   const weakCount={};
   alive.forEach(p=>{
     const t=POKE_TYPES[p.name];
@@ -404,21 +421,16 @@ function renderTeam(){
       weaks.forEach(w=>{weakCount[w]=(weakCount[w]||0)+1});
     });
   });
+  
+  // Sort by count (most dangerous first)
   const sorted=Object.entries(weakCount).sort((a,b)=>b[1]-a[1]);
   if(sorted.length===0){wp.style.display='none';return}
+  
   wp.style.display='block';
   wg.innerHTML=sorted.map(([type,count])=>`<span class="wbadge ${TYPE_CLS[type]||''} ${count>=3?'danger':''}">${type} ${count>=2?'×'+count:''}</span>`).join('');
 }
-// Mobile dropdown toggle (touch support)
-document.querySelectorAll('.dropdown > a').forEach(trigger => {
-  trigger.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const parent = trigger.parentElement;
-      parent.classList.toggle('open');
-    }
-  });
-});
+
+// ===== INIT =====
 load();renderAll();
 document.getElementById('gameSelect').addEventListener('change',save);
 document.getElementById('runName').addEventListener('input',save);
@@ -430,5 +442,10 @@ document.getElementById('runName').addEventListener('input',save);
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this Nuzlocke Tracker free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free. No sign-up, no ads, no premium features locked behind a paywall."}},{"@type":"Question","name":"Does my data get saved?","acceptedAnswer":{"@type":"Answer","text":"Yes. All data saves to your browser local storage automatically. Close the page and come back and your run will still be there."}},{"@type":"Question","name":"Which Pokemon games are supported?","acceptedAnswer":{"@type":"Answer","text":"All mainline games from Generation 1 through Generation 9, including remakes like FireRed, HeartGold, and Brilliant Diamond."}},{"@type":"Question","name":"Can I use this on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tracker is fully responsive and works on phones, tablets, and desktop browsers."}},{"@type":"Question","name":"Does the tracker analyze my team weaknesses?","acceptedAnswer":{"@type":"Answer","text":"Yes. When you add Pokemon to your team, the tracker automatically shows your team type weaknesses so you can identify coverage gaps before important battles."}}]}
 </script>
+<script src="svg-icons.js"></script>
+<script src="pokemon-sprites.js"></script>
+<script src="homepage-enhance.js"></script>
+<script src="hero-poster.js"></script>
+<script src="visual-enhance.js"></script>
 </body>
 </html>
