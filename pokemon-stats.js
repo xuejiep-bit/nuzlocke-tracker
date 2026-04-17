@@ -1,4 +1,4 @@
-/* Nuzlocke Tracker — Base Stats enhancement
+/* Nuzlocke Tracker — Base Stats enhancement (v2, dark theme)
  * Fetches Pokemon base stats from PokeAPI and injects compact stat bars
  * into each encounter card. Works on all 11 tracker pages.
  * Cached in localStorage so each Pokemon is only fetched once per device.
@@ -61,6 +61,20 @@
     return pending[key];
   }
 
+  function statColor(v) {
+    if (v >= 120) return '#06b6d4'; // cyan - elite
+    if (v >= 90)  return '#22c55e'; // green - strong
+    if (v >= 60)  return '#eab308'; // yellow - mid
+    return '#f87171';               // soft red - low
+  }
+
+  function bstColor(total) {
+    if (total >= 600) return '#06b6d4'; // cyan - legendary/pseudo
+    if (total >= 500) return '#22c55e'; // green - strong
+    if (total >= 400) return '#f1f5f9'; // near-white - average
+    return '#94a3b8';                   // muted - weak
+  }
+
   function statsHTML(stats) {
     if (!stats) return '';
     var rows = [
@@ -69,8 +83,8 @@
     ].map(function (pair) {
       var label = pair[0], key = pair[1];
       var v = stats[key] || 0;
-      var pct = Math.min(100, Math.round(v / 180 * 100));
-      var color = v >= 100 ? '#22c55e' : v >= 70 ? '#eab308' : '#ef4444';
+      var pct = Math.min(100, Math.round(v / 150 * 100));
+      var color = statColor(v);
       return '<div class="nzt-ps-row">' +
         '<span class="nzt-ps-lbl">' + label + '</span>' +
         '<div class="nzt-ps-bar"><div class="nzt-ps-fill" style="width:' + pct + '%;background:' + color + '"></div></div>' +
@@ -78,7 +92,8 @@
         '</div>';
     }).join('');
     return '<div class="nzt-poke-stats" data-nzt-stats="1">' +
-      '<div class="nzt-ps-total">BST <b>' + stats.total + '</b></div>' +
+      '<div class="nzt-ps-total"><span class="nzt-ps-tlbl">BST</span>' +
+      '<b style="color:' + bstColor(stats.total) + '">' + stats.total + '</b></div>' +
       rows +
       '</div>';
   }
@@ -88,57 +103,63 @@
     var s = document.createElement('style');
     s.id = 'nzt-poke-stats-css';
     s.textContent =
-      '.nzt-poke-stats{margin-top:8px;padding:7px 9px;background:rgba(0,0,0,0.04);' +
-      'border-radius:6px;font-size:10px;line-height:1.3;' +
+      '.nzt-poke-stats{margin-top:8px;padding:8px 10px;' +
+      'background:rgba(255,255,255,0.04);' +
+      'border:1px solid rgba(255,255,255,0.08);' +
+      'border-radius:6px;font-size:10px;line-height:1.35;' +
       'font-family:"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}' +
-      '.nzt-ps-total{font-size:10px;color:#666;margin-bottom:4px;letter-spacing:0.5px}' +
-      '.nzt-ps-total b{color:#111;font-size:11px;margin-left:4px}' +
-      '.nzt-ps-row{display:flex;align-items:center;gap:6px;margin-bottom:2px}' +
-      '.nzt-ps-lbl{width:26px;color:#888;text-align:right;font-weight:600}' +
-      '.nzt-ps-bar{flex:1;height:6px;background:rgba(0,0,0,0.09);border-radius:3px;overflow:hidden}' +
-      '.nzt-ps-fill{height:100%;transition:width .4s ease}' +
-      '.nzt-ps-val{width:26px;color:#222;font-weight:700;text-align:right}';
+      '.nzt-ps-total{display:flex;align-items:baseline;gap:6px;' +
+      'margin-bottom:6px;padding-bottom:5px;' +
+      'border-bottom:1px solid rgba(255,255,255,0.06)}' +
+      '.nzt-ps-tlbl{font-size:10px;color:rgba(255,255,255,0.5);' +
+      'font-weight:600;letter-spacing:0.6px}' +
+      '.nzt-ps-total b{font-size:13px;font-weight:800;letter-spacing:0.3px}' +
+      '.nzt-ps-row{display:flex;align-items:center;gap:7px;margin-bottom:2px}' +
+      '.nzt-ps-row:last-child{margin-bottom:0}' +
+      '.nzt-ps-lbl{width:26px;color:rgba(255,255,255,0.55);' +
+      'text-align:right;font-weight:600}' +
+      '.nzt-ps-bar{flex:1;height:6px;' +
+      'background:rgba(255,255,255,0.09);' +
+      'border-radius:3px;overflow:hidden}' +
+      '.nzt-ps-fill{height:100%;border-radius:3px;' +
+      'transition:width .4s ease;box-shadow:0 0 6px rgba(255,255,255,0.05)}' +
+      '.nzt-ps-val{width:28px;color:rgba(255,255,255,0.92);' +
+      'font-weight:700;text-align:right}';
     document.head.appendChild(s);
   }
 
   function extractName(el) {
     var txt = (el.textContent || '').trim();
     if (!txt) return null;
-    // "Nickname (Name)" pattern - prefer the parenthesized species name
     var m = txt.match(/\(([^()]+)\)\s*$/);
     if (m) return m[1].trim();
     return txt;
   }
 
   function enhanceCard(enc) {
-    // Find name element (handle both DOM variants across trackers)
     var nameEl = enc.querySelector('.enc-name') ||
                  (enc.querySelector('.info') && enc.querySelector('.info .name')) ||
                  enc.querySelector('.name');
     if (!nameEl) return;
 
-    // Find info container to append stats to
     var infoEl = enc.querySelector('.enc-info') ||
                  enc.querySelector('.info') ||
                  nameEl.parentElement;
     if (!infoEl) return;
 
-    // Already enhanced?
     if (infoEl.querySelector('[data-nzt-stats]')) return;
 
     var pokeName = extractName(nameEl);
     if (!pokeName) return;
 
-    // Mark as in-progress to prevent double fetching on rapid re-renders
     infoEl.setAttribute('data-nzt-pending', pokeName);
 
     fetchStats(pokeName).then(function (stats) {
-      // Verify the card still exists and still wants this name
       if (!document.body.contains(infoEl)) return;
       if (infoEl.getAttribute('data-nzt-pending') !== pokeName) return;
       infoEl.removeAttribute('data-nzt-pending');
       if (infoEl.querySelector('[data-nzt-stats]')) return;
-      if (!stats) return; // Pokemon not found in API, skip silently
+      if (!stats) return;
       var tmp = document.createElement('div');
       tmp.innerHTML = statsHTML(stats);
       if (tmp.firstChild) infoEl.appendChild(tmp.firstChild);
