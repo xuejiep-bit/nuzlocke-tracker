@@ -156,9 +156,54 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </ul></nav>
 </div></header>
 
+<style>
+.hero{padding:52px 24px 32px}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.hcta{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border-radius:var(--radius);text-decoration:none;font-weight:600;transition:all .2s;min-width:230px;text-align:left}
+.hcta-icon{font-size:1.6rem;flex-shrink:0;line-height:1}
+.hcta-body{display:flex;flex-direction:column;gap:1px}
+.hcta-main{font-family:'Chakra Petch',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.3px;color:#fff}
+.hcta-sub{font-size:.76rem;font-weight:400;color:rgba(255,255,255,.82)}
+.hcta-primary{background:var(--red);box-shadow:0 6px 20px rgba(231,76,60,0.3)}
+.hcta-primary:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 8px 26px rgba(231,76,60,0.5)}
+.hcta-secondary{background:linear-gradient(135deg,var(--red),var(--gold));box-shadow:0 6px 20px rgba(241,196,15,0.22)}
+.hcta-secondary:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 8px 26px rgba(241,196,15,0.4)}
+.hero-features{display:flex;gap:6px 22px;justify-content:center;flex-wrap:wrap;margin-top:24px;font-size:.86rem;color:var(--text2)}
+.hf{display:inline-flex;align-items:center;white-space:nowrap}
+.hf::before{content:'✓';color:var(--alive);font-weight:700;margin-right:6px}
+html{scroll-behavior:smooth}
+@media(max-width:640px){
+  .hero{padding:30px 20px 20px}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:10px;margin-top:22px}
+  .hcta{min-width:0;justify-content:center}
+  .hero-features{font-size:.78rem;gap:6px 14px;margin-top:20px}
+}
+</style>
 <section class="hero">
 <h1>Free Online <span class="hl">Nuzlocke Tracker</span></h1>
-<p>Record encounters, track your team, analyze type weaknesses, and survive every battle. The simplest way to manage your Nuzlocke run.</p>
+<p>Record encounters, track your team, analyze type weaknesses, and survive every battle.</p>
+<div class="hero-ctas">
+<a href="#tracker" class="hcta hcta-primary">
+<span class="hcta-icon">🎯</span>
+<span class="hcta-body">
+<span class="hcta-main">Start Tracking</span>
+<span class="hcta-sub">Record your run below</span>
+</span>
+</a>
+<a href="/nuzlocke-pokedex.html" class="hcta hcta-secondary">
+<span class="hcta-icon">🎴</span>
+<span class="hcta-body">
+<span class="hcta-main">Browse 1025 Pokemon</span>
+<span class="hcta-sub">Complete Pokedex</span>
+</span>
+</a>
+</div>
+<div class="hero-features">
+<span class="hf">12 game-specific trackers</span>
+<span class="hf">Gen 1-9 support</span>
+<span class="hf">Auto-save locally</span>
+<span class="hf">100% free, no ads</span>
+</div>
 </section>
 
 <!-- Pokedex CTA Banner -->
