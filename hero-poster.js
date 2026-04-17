@@ -1,8 +1,8 @@
 /* ============================================
-   HERO POSTER v6 - Nuzlocke Tracker
+   HERO POSTER v7 - Nuzlocke Tracker
    - Dual CTA buttons (Tracking + Pokedex)
    - Updated stats: 1025 Pokemon
-   - Pikachu + tagline preserved
+   - Game cards: 6 per row (6+5 layout)
    ============================================ */
 (function(){
   'use strict';
@@ -53,11 +53,12 @@ html{scroll-behavior:smooth}\
 .hero-cta-secondary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(241,196,15,.4);filter:brightness(1.08)}\
 .hero-cta svg{width:18px;height:18px;flex-shrink:0}\
 \
-.game-cards{position:relative;z-index:2;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:1200px;margin:20px auto 0;padding:0 24px;animation:fadeUp .6s .5s both}\
-.game-card{display:flex;align-items:center;gap:6px;background:var(--bg2,#1a1a2e);border:1px solid var(--border,#2c3e50);border-radius:12px;padding:8px 14px 8px 6px;text-decoration:none;color:var(--text2,#95a5a6);font-size:.82rem;font-weight:500;transition:all .3s}\
+.game-cards{position:relative;z-index:2;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;max-width:1200px;margin:24px auto 0;padding:0 24px;animation:fadeUp .6s .5s both}\
+.game-card{flex:0 0 calc((100% - 50px) / 6);min-width:0;display:flex;align-items:center;gap:8px;background:var(--bg2,#1a1a2e);border:1px solid var(--border,#2c3e50);border-radius:12px;padding:10px 14px 10px 8px;text-decoration:none;color:var(--text2,#95a5a6);font-size:.85rem;font-weight:500;transition:all .3s}\
 .game-card:hover{border-color:var(--red,#e74c3c);color:var(--text,#ecf0f1);background:rgba(231,76,60,.08);box-shadow:0 4px 20px rgba(231,76,60,.15);transform:translateY(-3px)}\
-.game-card img{width:40px;height:40px;image-rendering:pixelated;transition:transform .3s}\
+.game-card img{width:40px;height:40px;image-rendering:pixelated;transition:transform .3s;flex-shrink:0}\
 .game-card:hover img{transform:scale(1.15)}\
+.game-card span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}\
 \
 .poster-stats{position:relative;z-index:2;display:flex;justify-content:center;gap:28px;margin:22px auto 10px;padding:0 24px;max-width:1200px;animation:fadeUp .6s .7s both}\
 .poster-stat{text-align:center}\
@@ -67,6 +68,9 @@ html{scroll-behavior:smooth}\
 \
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}\
 \
+@media(max-width:960px){\
+.game-card{flex:0 0 calc((100% - 40px) / 5);font-size:.8rem}\
+}\
 @media(max-width:768px){\
 .hero-inner{flex-direction:column;text-align:center;gap:16px}\
 .hero-pikachu img{width:180px;height:180px}\
@@ -74,7 +78,7 @@ html{scroll-behavior:smooth}\
 .hero-sub{font-size:.88rem}\
 .hero-ctas{justify-content:center}\
 .hero-cta{font-size:.88rem;padding:11px 20px}\
-.game-card{padding:6px 10px 6px 4px;font-size:.75rem}\
+.game-card{flex:0 0 calc((100% - 30px) / 4);padding:8px 10px 8px 6px;font-size:.75rem;gap:6px}\
 .game-card img{width:32px;height:32px}\
 .poster-stats{gap:16px}\
 .poster-stat-n{font-size:1.1rem}\
@@ -82,6 +86,7 @@ html{scroll-behavior:smooth}\
 @media(max-width:480px){\
 .hero-ctas{flex-direction:column;align-items:stretch;width:100%}\
 .hero-cta{justify-content:center}\
+.game-card{flex:0 0 calc((100% - 20px) / 3)}\
 }\
 ';
   document.head.appendChild(css);
@@ -90,21 +95,17 @@ html{scroll-behavior:smooth}\
     var oldHero = document.querySelector('.hero');
     if (!oldHero) return;
 
-    // Full-width poster
     var poster = document.createElement('section');
     poster.className = 'hero-poster';
 
-    // Inner container (1200px centered)
     var inner = document.createElement('div');
     inner.className = 'hero-inner';
 
-    // Pikachu (left, large)
     var pika = document.createElement('div');
     pika.className = 'hero-pikachu';
     pika.innerHTML = '<img src="' + SP + '25.png" alt="Pikachu" loading="eager" onerror="this.style.display=\'none\'">';
     inner.appendChild(pika);
 
-    // Text (right)
     var text = document.createElement('div');
     text.className = 'hero-text';
     text.innerHTML = '\
@@ -126,7 +127,6 @@ Browse 1025 Pokemon\
     poster.appendChild(inner);
     oldHero.parentNode.replaceChild(poster, oldHero);
 
-    // Game cards
     var cards = document.createElement('div');
     cards.className = 'game-cards';
     GAME_LINKS.forEach(function(g) {
@@ -139,7 +139,6 @@ Browse 1025 Pokemon\
     });
     poster.parentNode.insertBefore(cards, poster.nextSibling);
 
-    // Stats bar
     var stats = document.createElement('div');
     stats.className = 'poster-stats';
     stats.innerHTML = '\

@@ -195,10 +195,8 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <div class="panel">
 <h2>📋 Encounters</h2>
 <div class="encounter-form">
-<div class="ac-wrap">
-<input type="text" id="pokeName" placeholder="Pokémon name" autocomplete="off" oninput="onPokeInput()" onkeydown="onPokeKey(event)">
-<div class="ac-list" id="acList"></div>
-</div>
+<input type="text" id="pokeName" placeholder="Pokémon name" list="pokeList" autocomplete="off" onkeydown="if(event.key==='Enter')addEnc()">
+<datalist id="pokeList"></datalist>
 <input type="text" id="nick" placeholder="Nickname" onkeydown="if(event.key==='Enter')addEnc()">
 <select id="routeSelect"><option value="">Route / Location</option></select>
 <input type="text" id="routeCustom" placeholder="Route / Location" onkeydown="if(event.key==='Enter')addEnc()" style="display:none">
@@ -352,27 +350,6 @@ function onGameChange(){
   save();
 }
 
-// ===== AUTOCOMPLETE =====
-let acIdx=-1;
-function onPokeInput(){
-  const v=document.getElementById('pokeName').value.trim().toLowerCase();
-  const list=document.getElementById('acList');
-  if(v.length<2){list.classList.remove('show');return}
-  const matches=POKEMON.filter(p=>p.toLowerCase().includes(v)).slice(0,8);
-  if(matches.length===0){list.classList.remove('show');return}
-  list.innerHTML=matches.map((m,i)=>`<div class="ac-item" onmousedown="pickPoke('${m}')">${m}</div>`).join('');
-  list.classList.add('show');acIdx=-1;
-}
-function onPokeKey(e){
-  const list=document.getElementById('acList');
-  const items=list.querySelectorAll('.ac-item');
-  if(!list.classList.contains('show')||items.length===0){if(e.key==='Enter')addEnc();return}
-  if(e.key==='ArrowDown'){e.preventDefault();acIdx=Math.min(acIdx+1,items.length-1);items.forEach((it,i)=>it.classList.toggle('selected',i===acIdx))}
-  else if(e.key==='ArrowUp'){e.preventDefault();acIdx=Math.max(acIdx-1,0);items.forEach((it,i)=>it.classList.toggle('selected',i===acIdx))}
-  else if(e.key==='Enter'){e.preventDefault();if(acIdx>=0&&items[acIdx])pickPoke(items[acIdx].textContent);else addEnc()}
-}
-function pickPoke(name){document.getElementById('pokeName').value=name;document.getElementById('acList').classList.remove('show');document.getElementById('nick').focus()}
-document.addEventListener('click',e=>{if(!e.target.closest('.ac-wrap'))document.getElementById('acList').classList.remove('show')});
 
 // ===== ADD ENCOUNTER =====
 function addEnc(){
@@ -449,6 +426,10 @@ function renderTeam(){
 }
 
 // ===== INIT =====
+// Populate native datalist with all Pokemon names for the dropdown
+const dl=document.getElementById('pokeList');
+POKEMON.forEach(p=>{const o=document.createElement('option');o.value=p;dl.appendChild(o)});
+
 load();renderAll();
 document.getElementById('gameSelect').addEventListener('change',save);
 document.getElementById('runName').addEventListener('input',save);
@@ -465,5 +446,6 @@ document.getElementById('runName').addEventListener('input',save);
 <script src="pokemon-sprites.js"></script>
 <script src="hero-poster.js"></script>
 <script src="visual-enhance.js"></script>
+<script src="pokemon-stats.js"></script>
 </body>
 </html>
