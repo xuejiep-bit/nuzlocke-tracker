@@ -32,8 +32,9 @@
       { name: 'FireRed Guide', url: '/nuzlocke-guide-firered.html' },
     ],
     tools: [
-      { name: 'Type Chart', url: '/type-chart.html' },
-    ],
+  { name: 'Nuzlocke Pokedex', url: '/nuzlocke-pokedex.html' },
+  { name: 'Type Chart', url: '/type-chart.html' },
+  ],
     blog: [
       { name: 'Nuzlocke Rules', url: '/nuzlocke-rules.html' },
       { name: 'Nuzlocke Tips', url: '/nuzlocke-tips.html' },
@@ -109,7 +110,7 @@
     newNav.innerHTML =
       buildDropdown('Trackers', NAV.trackers) +
       buildDropdown('Guides', NAV.guides) +
-      buildDirectLink('Type Chart', '/type-chart.html') +
+      buildDropdown('Tools', NAV.tools) +
       buildDropdown('Blog', NAV.blog);
 
     oldNav.parentNode.replaceChild(newNav, oldNav);
