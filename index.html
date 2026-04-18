@@ -71,15 +71,14 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 .encounter-list{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
 .encounter-list::-webkit-scrollbar{width:5px}
 .encounter-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-.enc{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--card);border-radius:var(--radius-sm);border-left:4px solid var(--alive);transition:all .2s;animation:fadeIn .3s}
+.enc{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:10px 14px;background:var(--card);border-radius:var(--radius-sm);border-left:4px solid var(--alive);transition:all .2s;animation:fadeIn .3s}
 .enc:hover{background:var(--card2)}
 .enc.dead{border-left-color:var(--dead);opacity:.6}
 .enc.boxed{border-left-color:var(--boxed)}
-.enc-info .enc-name{font-weight:600;font-size:.9rem}
-.enc-info .enc-detail{font-size:.78rem;color:var(--text2)}
 .enc-info{flex:1;min-width:0}
-.enc .nzt-poke-stats{margin-top:6px}
-.enc .nzt-ps-bar{flex:1 1 auto}
+.enc-info .enc-name{font-weight:600;font-size:.9rem}
+.enc-info .enc-detail{font-size:.78rem;color:var(--text2);margin-top:1px}
+.enc-actions{flex-shrink:0;align-self:center}
 .enc-actions{display:flex;gap:4px}
 .sbtn{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);background:transparent;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text2)}
 .sbtn:hover{transform:scale(1.1)}
