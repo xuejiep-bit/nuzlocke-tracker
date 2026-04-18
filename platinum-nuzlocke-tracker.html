@@ -284,8 +284,8 @@ const TYPE_WEAK={"Normal":["Fighting"],"Fire":["Water","Ground","Rock"],"Water":
 const TYPE_CLS={"Normal":"t-normal","Fire":"t-fire","Water":"t-water","Electric":"t-electric","Grass":"t-grass","Ice":"t-ice","Fighting":"t-fighting","Poison":"t-poison","Ground":"t-ground","Flying":"t-flying","Psychic":"t-psychic","Bug":"t-bug","Rock":"t-rock","Ghost":"t-ghost","Dragon":"t-dragon","Dark":"t-dark","Steel":"t-steel","Fairy":"t-fairy"};
 
 // ===== LOCAL STORAGE =====
-function save(){settings.game=document.getElementById('gameSelect').value;settings.runName=document.getElementById('runName').value;localStorage.setItem('nz_enc',JSON.stringify(encounters));localStorage.setItem('nz_set',JSON.stringify(settings))}
-function load(){try{const e=localStorage.getItem('nz_enc'),s=localStorage.getItem('nz_set');if(e)encounters=JSON.parse(e);if(s){settings=JSON.parse(s);document.getElementById('gameSelect').value=settings.game||'';document.getElementById('runName').value=settings.runName||'';onGameChange()}}catch(e){}}
+function save(){settings.game=document.getElementById('gameSelect').value;settings.runName=document.getElementById('runName').value;localStorage.setItem('nz_platinum',JSON.stringify(encounters));localStorage.setItem('nz_platinum_set',JSON.stringify(settings))}
+function load(){try{const e=localStorage.getItem('nz_platinum'),s=localStorage.getItem('nz_platinum_set');if(e)encounters=JSON.parse(e);if(s){settings=JSON.parse(s);document.getElementById('gameSelect').value=settings.game||'';document.getElementById('runName').value=settings.runName||'';onGameChange()}}catch(e){}}
 
 // ===== TOAST =====
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
@@ -335,7 +335,7 @@ function addEnc(){
 // ===== STATUS / DELETE =====
 function setStatus(id,s){const e=encounters.find(x=>x.id===id);if(e){e.status=s;save();renderAll();toast(`${e.nickname||e.name} → ${s}`)}}
 function delEnc(id){const e=encounters.find(x=>x.id===id);if(e&&confirm(`Remove ${e.nickname||e.name}?`)){encounters=encounters.filter(x=>x.id!==id);save();renderAll();toast(`Removed`)}}
-function resetRun(){if(confirm('Reset entire run? Cannot be undone.')){encounters=[];settings={game:'',runName:''};document.getElementById('gameSelect').value='';document.getElementById('runName').value='';localStorage.removeItem('nz_enc');localStorage.removeItem('nz_set');onGameChange();renderAll();toast('Run reset')}}
+function resetRun(){if(confirm('Reset entire run? Cannot be undone.')){encounters=[];settings={game:'',runName:''};document.getElementById('gameSelect').value='';document.getElementById('runName').value='';localStorage.removeItem('nz_platinum');localStorage.removeItem('nz_platinum_set');onGameChange();renderAll();toast('Run reset')}}
 
 // ===== RENDER =====
 function renderAll(){renderEnc();renderStats();renderTeam()}
@@ -413,5 +413,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script src="pixel-decorations.js"></script>
 <script src="nav-upgrade.js"></script>
+<script src="pokemon-stats.js"></script>
 </body>
 </html>
