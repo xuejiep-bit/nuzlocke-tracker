@@ -143,7 +143,8 @@
                  enc.querySelector('.name');
     if (!nameEl) return;
 
-    var infoEl = enc.querySelector('.enc-info') ||
+    var infoEl = enc.querySelector('.enc-text') ||
+                 enc.querySelector('.enc-info') ||
                  enc.querySelector('.info') ||
                  nameEl.parentElement;
     if (!infoEl) return;
