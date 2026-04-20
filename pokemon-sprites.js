@@ -155,6 +155,7 @@
     '.poke-sprite{width:40px;height:40px;image-rendering:pixelated;vertical-align:middle;margin-right:6px;flex-shrink:0}',
     '.enc{display:flex;align-items:center}',
     '.enc-info{display:flex;align-items:center;flex:1;min-width:0;gap:8px}',
+    '.enc .info:has(.poke-sprite){display:flex;align-items:center;flex:1;min-width:0;gap:8px}',
     '.enc-text{flex:1;min-width:0}',
     '.slot.filled{display:flex;align-items:center;gap:8px}',
     '.slot .poke-sprite{width:36px;height:36px}',
@@ -181,8 +182,13 @@
     var encs = root.querySelectorAll('.enc');
     encs.forEach(function(enc) {
       if (enc.querySelector('.poke-sprite')) return; // already has sprite
-      var nameEl = enc.querySelector('.enc-name');
+      
+      // Try A-new (.enc-name/.enc-info) then B-old (.name/.info)
+      var nameEl = enc.querySelector('.enc-name') || enc.querySelector('.name');
       if (!nameEl) return;
+      
+      var info = enc.querySelector('.enc-info') || enc.querySelector('.info');
+      if (!info) return;
       
       // Extract pokemon name (handle nickname format: "Nick (Pokemon)")
       var text = nameEl.textContent;
@@ -191,18 +197,14 @@
       if (match) pokeName = match[1];
       
       var sprite = getSprite(pokeName);
-      if (sprite) {
-        // Restructure: wrap enc-info content
-        var info = enc.querySelector('.enc-info');
-        if (info && !info.querySelector('.poke-sprite')) {
-          var wrapper = document.createElement('div');
-          wrapper.className = 'enc-text';
-          while (info.firstChild) {
-            wrapper.appendChild(info.firstChild);
-          }
-          info.innerHTML = sprite;
-          info.appendChild(wrapper);
+      if (sprite && !info.querySelector('.poke-sprite')) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'enc-text';
+        while (info.firstChild) {
+          wrapper.appendChild(info.firstChild);
         }
+        info.innerHTML = sprite;
+        info.appendChild(wrapper);
       }
     });
 

@@ -125,7 +125,9 @@
       '.nzt-ps-fill{height:100%;border-radius:3px;' +
       'transition:width .4s ease;box-shadow:0 0 6px rgba(255,255,255,0.05)}' +
       '.nzt-ps-val{flex:0 0 28px;width:28px;color:rgba(255,255,255,0.92);' +
-      'font-weight:700;text-align:right}';
+      'font-weight:700;text-align:right}' +
+      '.enc .info{display:flex;flex-direction:column;flex:1;min-width:0;gap:2px}' +
+      '.enc .info>.nzt-poke-stats{width:100%;margin-top:6px}';
     document.head.appendChild(s);
   }
 
@@ -139,6 +141,7 @@
 
   function enhanceCard(enc) {
     var nameEl = enc.querySelector('.enc-name') ||
+                 enc.querySelector('.enc-text .enc-name') ||
                  (enc.querySelector('.info') && enc.querySelector('.info .name')) ||
                  enc.querySelector('.name');
     if (!nameEl) return;
@@ -150,6 +153,7 @@
     if (!infoEl) return;
 
     if (infoEl.querySelector('[data-nzt-stats]')) return;
+    if (enc.querySelector('[data-nzt-stats]')) return;
 
     var pokeName = extractName(nameEl);
     if (!pokeName) return;
@@ -161,6 +165,7 @@
       if (infoEl.getAttribute('data-nzt-pending') !== pokeName) return;
       infoEl.removeAttribute('data-nzt-pending');
       if (infoEl.querySelector('[data-nzt-stats]')) return;
+      if (enc.querySelector('[data-nzt-stats]')) return;
       if (!stats) return;
       var tmp = document.createElement('div');
       tmp.innerHTML = statsHTML(stats);
