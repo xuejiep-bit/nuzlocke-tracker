@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7FCNMT7LQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z7FCNMT7LQ');
+</script><meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23e74c3c' stroke='%231a1a2e' stroke-width='2'/><path d='M1 16 A15 15 0 0 0 31 16' fill='white'/><rect x='1' y='14.5' width='30' height='3' fill='%231a1a2e'/><circle cx='16' cy='16' r='5' fill='white' stroke='%231a1a2e' stroke-width='2'/><circle cx='16' cy='16' r='2' fill='%231a1a2e'/></svg>"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pokémon Platinum Nuzlocke Guide — Tips, Encounters & Elite Four Strategy</title>
+<meta name="description" content="Complete Pokémon Platinum Nuzlocke guide. Best starter choice, key encounters, gym leader tips, and how to survive the notoriously difficult Sinnoh Elite Four and Cynthia.">
+<link rel="canonical" href="https://nuzlocketracker.xyz/nuzlocke-guide-platinum.html">
+<style>
+:root{--red:#e74c3c;--red-glow:rgba(231,76,60,0.3);--gold:#f1c40f;--blue:#3498db;--green:#2ecc71;--purple:#9b59b6;--bg:#0f0f17;--bg2:#1a1a2e;--card:#16213e;--card-hover:#1c2a4a;--text:#ecf0f1;--text2:#95a5a6;--text3:#636e72;--border:#2c3e50;--radius:12px;--radius-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text2);line-height:1.7;min-height:100vh}
+.header{background:rgba(15,15,23,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Chakra Petch',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--red);border-radius:50%;position:relative;box-shadow:0 0 16px var(--red-glow)}
+.logo-icon::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--bg)}
+.logo-icon::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:var(--bg);transform:translateY(-50%)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.container{max-width:800px;margin:0 auto;padding:40px 24px 60px}
+.breadcrumb{font-size:.85rem;color:var(--text3);margin-bottom:24px}
+.breadcrumb a{color:var(--red);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--text);margin-bottom:12px;line-height:1.3}
+h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta{font-size:.85rem;color:var(--text3);margin-bottom:32px}
+h2{font-family:'Chakra Petch',sans-serif;font-size:1.3rem;color:var(--text);margin:36px 0 12px}
+h3{font-size:1.05rem;color:var(--gold);margin:24px 0 8px}
+p{margin-bottom:16px;font-size:.95rem;line-height:1.8}
+strong{color:var(--text)}
+.tip-box{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:16px 20px;margin:20px 0}
+.tip-box strong{color:var(--gold)}
+.warning-box{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:var(--radius-sm);padding:16px 20px;margin:20px 0}
+.warning-box strong{color:var(--red)}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.rule-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.rule-card .num{font-family:'Chakra Petch',sans-serif;font-size:1.8rem;font-weight:700;color:var(--red);margin-bottom:6px}
+.rule-card h4{font-size:.95rem;color:var(--text);margin-bottom:6px}
+.rule-card p{font-size:.88rem;margin-bottom:0}
+.pokemon-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.pokemon-tag{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.85rem;color:var(--text);transition:all .2s}
+.pokemon-tag:hover{border-color:var(--red);background:rgba(231,76,60,.1)}
+.cta-box{background:var(--bg2);border:1px solid var(--red);border-radius:var(--radius);padding:24px;text-align:center;margin:32px 0}
+.cta-box p{margin-bottom:12px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--red);color:white;padding:10px 28px;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;transition:all .2s;box-shadow:0 4px 16px var(--red-glow);margin:0 6px}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--red-glow)}
+.cta-btn.sec{background:transparent;border:1px solid var(--red);box-shadow:none}
+.footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text3);font-size:.82rem}
+.footer a{color:var(--red);text-decoration:none}
+@media(max-width:600px){.nav-links{display:none}.rule-grid{grid-template-columns:1fr}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"></head><body><header class="header"><div class="header-inner"><a href="/" class="logo"><div class="logo-icon"></div>Nuzlocke Tracker</a><nav><ul class="nav-links">
+<li><a href="/">Tracker</a></li>
+<li><a href="/type-chart.html">Type Chart</a></li>
+<li><a href="/emerald-gym-leaders.html">Emerald</a></li>
+<li><a href="/firered-gym-leaders.html">FireRed</a></li>
+<li><a href="/platinum-gym-leaders.html">Platinum</a></li>
+<li><a href="/nuzlocke-rules.html">Rules</a></li>
+</ul></nav></div></header>
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → Platinum Nuzlocke Guide</div>
+<h1>Pokémon Platinum <span class="hl">Nuzlocke Guide</span></h1>
+<p class="meta">The definitive Platinum Nuzlocke guide — from starter choice to surviving Cynthia's Garchomp. Widely considered the hardest Nuzlocke in Gen 4.</p>
+
+<h2>Why Platinum?</h2>
+<p>Pokémon Platinum is the definitive Sinnoh experience and one of the most rewarding Nuzlocke challenges in the franchise. Enhanced gym leader teams, tougher AI, and the brutal Elite Four make Platinum significantly harder than Diamond or Pearl. It is also the <strong>first game using the physical/special split</strong> — moves like Flamethrower are now special regardless of type, which changes team-building fundamentals compared to older Nuzlocke runs.</p>
+
+<div class="warning-box"><strong>Warning:</strong> Platinum is <em>not</em> a beginner Nuzlocke. The level curve is harsh, wild encounters are often weaker than gym trainers, and Cynthia's Garchomp at Lv.62 has ended more runs than almost any other fight in the series. If this is your first Nuzlocke, consider starting with HeartGold or Emerald first.</p></div>
+
+<h2>Starter Choice</h2>
+<h3>Piplup (Recommended)</h3>
+<p><strong>Empoleon</strong> is the strongest starter for a Platinum Nuzlocke. Water/Steel typing gives 11 resistances and 1 immunity. Handles Roark, Gardenia's coverage moves, Fantina's Ghost, Byron's Steel gym easily, and contributes against Cynthia's Spiritomb. High Special Attack with Surf, Ice Beam, and Grass Knot gives excellent coverage throughout the entire run.</p>
+
+<h3>Turtwig (Solid Pick)</h3>
+<p><strong>Torterra</strong> is Grass/Ground with STAB Earthquake and Wood Hammer. Handles Roark, Wake, Volkner, and several Elite Four members. The downside is heavy weaknesses to Ice, Fire, Flying, and Bug — four very common attack types in Platinum. Solid but requires more careful team support.</p>
+
+<h3>Chimchar (Risky)</h3>
+<p><strong>Infernape</strong> is a glass cannon with massive Speed and Attack. Fire/Fighting gets STAB on Flare Blitz and Close Combat. Struggles against Crasher Wake, Byron (Bronzong's Levitate), and has no answer to Cynthia's Garchomp. Only recommended for experienced Nuzlockers who can manage its fragility.</p>
+
+<h2>Key Encounters to Watch For</h2>
+<div class="tip-box"><strong>Must-catch encounters:</strong> Starly (Route 201) → Staraptor, Shinx (Route 202) → Luxray, Budew (Route 204) → Roserade, Gible (Wayward Cave — rare) → Garchomp, Machop (Oreburgh Gate — rare) → Machamp, Bronzor (Mt. Coronet) → Bronzong, Ralts (Route 203 — rare) → Gardevoir/Gallade.</div>
+
+<p><strong>Gible is the single most desirable encounter.</strong> If you can find one in Wayward Cave's hidden chamber, Garchomp becomes your answer to almost every tough fight including Cynthia's own Garchomp in the mirror match. The encounter rate is painfully low, but worth resetting for if your ruleset allows.</p>
+
+<p><strong>Roselia line is S-tier.</strong> Budew on Route 204 evolves via friendship, then Shiny Stone (obtainable from the Great Marsh or Route 228) to Roserade. Massive Special Attack with Toxic stall, access to Sludge Bomb and Energy Ball, and natural counter to Crasher Wake's Water team.</p>
+
+<h2>Sinnoh Gym Leader Strategies</h2>
+
+<h3>Roark (Rock) — Oreburgh City</h3>
+<p>Easy with Piplup or Turtwig. Chimchar struggles but can manage with Fury Swipes on Geodude. Watch out for Cranidos's Headbutt flinch. Machop (Oreburgh Gate) with Low Kick destroys this gym if you got lucky with the rare encounter.</p>
+
+<h3>Gardenia (Grass) — Eterna City</h3>
+<p>Flying types (Staraptor) dominate. Fire types work but Torterra's Earthquake also handles her Cherrim. <strong>Danger:</strong> Roserade has Magical Leaf (never misses) and Grass Knot which hits heavy Pokémon hard. Don't bring Torterra to the Roserade fight.</p>
+
+<h3>Fantina (Ghost) — Hearthome City</h3>
+<p>Fantina's level jump is brutal — her Mismagius is at Lv.36 while the wild Pokémon are still Lv.25-30. <strong>Dark types are critical</strong> (Shinx line's Bite, Houndour if you got one). Psychic also works in Platinum due to the physical/special split. Paralysis before engaging her Drifblim helps.</p>
+
+<h3>Crasher Wake (Water) — Pastoria City</h3>
+<p>Roserade with Giga Drain is perfect. Luxray with Crunch (not Electric moves — his Quagsire is Water/Ground). <strong>Major threat:</strong> Gyarados has Waterfall and Earthquake — only Water/Flying types (Empoleon with care) can safely tank hits. If no Grass/Electric resist, bring a Rock type with full HP.</p>
+
+<h3>Maylene (Fighting) — Veilstone City</h3>
+<p>Psychic and Flying types dominate. Staraptor's Aerial Ace or Close Combat handles everything. <strong>Watch out:</strong> Lucario has Drain Punch (heal + damage) and Metal Claw coverage. Bring a bulky Ghost like Gengar if available.</p>
+
+<h3>Byron (Steel) — Canalave City</h3>
+<p>Fire types (Infernape Flare Blitz) and Fighting types (Machamp Cross Chop) shine. <strong>Major danger:</strong> Bronzor/Bronzong with Levitate makes Ground moves useless — you need Fire, Dark, or Ghost coverage. Bastiodon's Metal Burst can instakill your glass cannons. Lead with something bulky.</p>
+
+<h3>Candice (Ice) — Snowpoint City</h3>
+<p>Fire types dominate. Abomasnow is a rare Grass/Ice encounter — 4x weak to Fire moves. <strong>Serious threat:</strong> Froslass's Snow Cloak plus Blizzard in hail means accuracy drops. Use Psychic types (Alakazam if you got one) or pure Fire attackers with high Accuracy.</p>
+
+<h3>Volkner (Electric) — Sunyshore City</h3>
+<p>Ground types are essential. Torterra's Earthquake, Rhyperior (if you evolved Rhyhorn), or even Gible/Gabite if you were lucky enough to catch one. <strong>Danger:</strong> Luxray has Ice Fang to counter Ground types — lead with a high-HP Ground attacker. Octillery's Signal Beam and Psybeam can also one-shot frail team members.</p>
+
+<h2>Platinum Elite Four Strategy</h2>
+
+<p>The Platinum Elite Four is considerably harder than Diamond/Pearl. Each member has 5 Pokémon instead of 4, with better movesets and held items. Expected team level should be <strong>Lv.55+</strong> before attempting. Grinding at the Resort Area or Route 229/230 is essential.</p>
+
+<h3>Aaron (Bug) — Elite Four #1</h3>
+<p>Fire and Flying dominate. Staraptor's Close Combat also wrecks Heracross. <strong>Watch for:</strong> Drapion (Poison/Dark) resists both Fire and Bug moves — use Ground or Psychic. Vespiquen's Defend Order makes her surprisingly bulky.</p>
+
+<h3>Bertha (Ground) — Elite Four #2</h3>
+<p>Grass and Water dominate. Empoleon with Surf and Grass Knot handles everything. <strong>Danger:</strong> Rhyperior's Hammer Arm hurts Grass types badly. Whiscash's Amnesia + Rest combo is a stall nightmare — bring Taunt or Toxic if available.</p>
+
+<h3>Flint (Fire) — Elite Four #3</h3>
+<p>Water, Rock, and Ground dominate. Note: in Platinum, Flint's team is <em>actually</em> Fire-focused (not mixed like Diamond/Pearl). <strong>Real threat:</strong> Infernape's Close Combat hits everything you'd bring for Fire weakness. Magmortar's Psychic can one-shot Fighting types.</p>
+
+<h3>Lucian (Psychic) — Elite Four #4</h3>
+<p>Dark, Bug, and Ghost dominate. <strong>The problem:</strong> Bronzong has Gyro Ball (hits faster Pokémon harder) and Levitate. Mr. Mime knows Thunderbolt coverage. Gallade is Psychic/Fighting — no Dark weakness boost. Use Dark types (Houndoom, Absol if you got one) with physical moves.</p>
+
+<h2>Cynthia — The Final Boss</h2>
+<div class="warning-box"><strong>Cynthia is the hardest Champion in the entire main series.</strong> Her team at Lv.58-62 is one of the most well-constructed AI teams in Pokémon history. Every Pokémon counters common counters to her other Pokémon. Many runs die here.</div>
+
+<p><strong>Cynthia's team:</strong> Spiritomb (Lv.58, Dark/Ghost, no 4× weakness in Gen 4), Roserade (Lv.58, lethal Shadow Ball), Togekiss (Lv.60, Air Slash flinch hell), Lucario (Lv.60, Aura Sphere + Extreme Speed), Milotic (Lv.58, Recover + Ice Beam), and <strong>Garchomp (Lv.62)</strong>.</p>
+
+<p><strong>The Garchomp problem:</strong> Garchomp is Dragon/Ground with Sand Veil, which makes moves miss 20% of the time. Its Earthquake one-shots almost anything that isn't resistant. Your only reliable answers are: your own Garchomp, Ice Shard priority users (Weavile if your rules allow trade evolutions), or a setup sweeper that can survive one hit.</p>
+
+<p><strong>How to prepare:</strong></p>
+<ul style="margin:10px 0 16px 20px">
+<li>Grind to <strong>Lv.60+</strong> before challenging — do not fight her underleveled</li>
+<li>Bring 2-3 Ice move users for Garchomp coverage</li>
+<li>Stock up on Full Restores, Max Revives if your ruleset allows items</li>
+<li>Have a plan for Togekiss's flinch spam — bring a Steel type or a Rock type</li>
+<li>Spiritomb has no weakness in Gen 4 — rely on high-damage neutral attackers</li>
+</ul>
+
+<h2>Key Differences from Diamond/Pearl Nuzlockes</h2>
+<div class="rule-grid">
+<div class="rule-card"><div class="num">1</div><h4>Harder gym teams</h4><p>Gym leaders have 4 Pokémon instead of 3 in Platinum, with better movesets and items.</p></div>
+<div class="rule-card"><div class="num">2</div><h4>Different encounters</h4><p>Gible is only in Wayward Cave hidden room in Platinum, not the main cave. Some Pokémon are only available via the upgraded Pokédex.</p></div>
+<div class="rule-card"><div class="num">3</div><h4>Distortion World</h4><p>New story segment adds encounters after Galactic HQ. Giratina available post-game.</p></div>
+<div class="rule-card"><div class="num">4</div><h4>Enhanced Cynthia</h4><p>Platinum's Cynthia has Togekiss instead of Gastrodon — far more dangerous with flinch spam.</p></div>
+</div>
+
+<h2>Recommended Team Composition</h2>
+<p>A balanced Platinum Nuzlocke team should cover these roles. No team can handle every situation, but try to hit at least 4 of these 6 roles:</p>
+<div class="pokemon-list">
+<span class="pokemon-tag">Starter (bulk/utility)</span>
+<span class="pokemon-tag">Electric/Ice (Flying counter)</span>
+<span class="pokemon-tag">Ground (Electric counter)</span>
+<span class="pokemon-tag">Ghost/Dark (Psychic counter)</span>
+<span class="pokemon-tag">Fighting (Normal/Rock/Steel counter)</span>
+<span class="pokemon-tag">Fast sweeper (cleanup)</span>
+</div>
+
+<div class="tip-box"><strong>Priority catches:</strong> Shinx (Route 202, mandatory), Budew (Route 204, mandatory), Ponyta (Route 206/210, fire option), Bronzor (Mt. Coronet, incredible typing), Hippopotas (Route 214, Ground type). If you can only prioritize 3, pick Shinx, Budew, and Bronzor — they form the backbone of most winning teams.</div>
+
+<div class="cta-box"><p>Track your Platinum Nuzlocke run with our dedicated tool — all Sinnoh routes pre-loaded.</p><a href="/platinum-nuzlocke-tracker.html" class="cta-btn">Platinum Tracker</a><a href="/platinum-gym-leaders.html" class="cta-btn sec">Gym Leaders →</a></div>
+
+<h2>Frequently Asked Questions</h2>
+<p><strong>Is Platinum harder than Diamond/Pearl?</strong> Yes, significantly. Gym leaders have 4 Pokémon instead of 3, Elite Four teams are expanded, and Cynthia has the much more threatening Togekiss in place of Gastrodon. If you've beaten Diamond or Pearl Nuzlockes, Platinum will still challenge you.</p>
+
+<p><strong>Can I catch Garchomp early in Platinum?</strong> Gible is only available in Wayward Cave's hidden chamber (behind a Strength boulder accessed from a specific wall). The encounter rate is very low. Some Nuzlockers consider hunting it worth the time cost, others skip it.</p>
+
+<p><strong>How much grinding does Platinum need?</strong> More than most games. The level curve has major jumps before Fantina, before Byron, and before the Elite Four. Expect to grind at the Daycare, Victory Road, and Route 228 between major fights.</p>
+
+<p><strong>What if Cynthia's Garchomp kills my whole team?</strong> Welcome to the Platinum Nuzlocke experience. The trick is having 2-3 Ice move users so you always have Garchomp answer in reserve. Ice Shard users are especially valuable because Garchomp's Sand Veil doesn't help against priority.</p>
+
+</div><div style="max-width:960px;margin:0 auto;padding:20px 24px 0">
+<div style="background:var(--bg2,#1a1a2e);border:1px solid var(--border,#2c3e50);border-radius:12px;padding:24px">
+<h3 style="font-family:'Chakra Petch',sans-serif;color:var(--text,#ecf0f1);font-size:1rem;margin-bottom:16px">Explore More Platinum Nuzlocke Resources</h3>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<a href="/platinum-nuzlocke-tracker.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Platinum Tracker</a>
+<a href="/platinum-gym-leaders.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Platinum Gym Leaders</a>
+<a href="/platinum-nuzlocke-tier-list.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Platinum Tier List</a>
+<a href="/pokemon-heartgold-nuzlocke-tracker.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">HeartGold Tracker</a>
+<a href="/pokemon-soulsilver-nuzlocke-tracker.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">SoulSilver Tracker</a>
+<a href="/nuzlocke-guide-emerald.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Emerald Guide</a>
+<a href="/nuzlocke-guide-firered.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">FireRed Guide</a>
+<a href="/type-chart.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Type Chart</a>
+<a href="/nuzlocke-rules.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Nuzlocke Rules</a>
+<a href="/best-pokemon-for-nuzlocke.html" style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:20px;padding:6px 14px;font-size:.82rem;color:#e74c3c;text-decoration:none">Best Pokémon</a>
+</div></div></div>
+<footer class="footer"><p>Nuzlocke Tracker — a free tool for the Pokémon Nuzlocke community.</p><p>Pokémon is a trademark of Nintendo, Game Freak, and Creatures Inc. Not affiliated.</p><p>© 2026 nuzlocketracker.xyz · <a href="/">Back to Tracker</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best starter for Platinum Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Piplup is the best starter for a Platinum Nuzlocke. Empoleon's Water/Steel typing gives 11 resistances, and it handles multiple gym leaders plus contributes against Cynthia's team."}},{"@type":"Question","name":"Is Platinum harder than Diamond or Pearl for a Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Yes, significantly harder. Gym leaders have 4 Pokémon instead of 3, Elite Four teams are expanded, and Cynthia's Togekiss replaces Gastrodon making her the hardest Champion in main series Pokémon."}},{"@type":"Question","name":"Where do I catch Gible in Platinum?","acceptedAnswer":{"@type":"Answer","text":"Gible is only available in Wayward Cave's hidden chamber, accessed via a Strength boulder path. Encounter rate is very low, so expect to reset multiple times if hunting it."}},{"@type":"Question","name":"How do I beat Cynthia in a Platinum Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Grind to Lv.60+, bring 2-3 Ice move users for her Lv.62 Garchomp, have an answer to Togekiss's flinch spam, and stock plenty of healing items. Ice Shard priority users are especially valuable against Garchomp's Sand Veil."}}]}</script>
+<script src="pixel-decorations.js"></script>
+<script src="nav-upgrade.js"></script></body></html>
