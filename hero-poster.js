@@ -11,15 +11,16 @@
 
   var GAME_LINKS = [
     { id: 384, name: 'Emerald',     url: '/emerald-nuzlocke-tracker.html' },
-    { id: 6,   name: 'FireRed',     url: '/firered-nuzlocke-tracker.html' },
+    { id: 250, name: 'HeartGold',   url: '/pokemon-heartgold-nuzlocke-tracker.html' },
+    { id: 249, name: 'SoulSilver',  url: '/pokemon-soulsilver-nuzlocke-tracker.html' },
     { id: 487, name: 'Platinum',    url: '/platinum-nuzlocke-tracker.html' },
+    { id: 6,   name: 'FireRed',     url: '/firered-nuzlocke-tracker.html' },
     { id: 644, name: 'Black',       url: '/pokemon-black-nuzlocke-tracker.html' },
     { id: 643, name: 'White',       url: '/pokemon-white-nuzlocke-tracker.html' },
     { id: 646, name: 'Black 2',     url: '/pokemon-black-2-nuzlocke-tracker.html' },
     { id: 716, name: 'X',           url: '/pokemon-x-nuzlocke-tracker.html' },
     { id: 717, name: 'Y',           url: '/pokemon-y-nuzlocke-tracker.html' },
     { id: 792, name: 'Moon',        url: '/pokemon-moon-nuzlocke-tracker.html' },
-    { id: 720, name: 'Unbound',     url: '/pokemon-unbound-nuzlocke-tracker.html' },
     { id: 150, name: 'Inf. Fusion', url: '/pokemon-infinite-fusion-nuzlocke-tracker.html' },
   ];
 
